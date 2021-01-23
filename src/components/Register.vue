@@ -3,10 +3,9 @@
 <div class="full">
   <form class="logform">
     <center><div class="h2">
-      <h2>Fundoo Notes</h2>
+      <h2 id=h2>Fundoo Notes</h2>
       <h3>Registraion Page</h3>
     </div></center>
-
 
     <!--Names-->
     <div class="form-group row">
@@ -56,11 +55,20 @@
   margin-left: 600px;
 }
 
-  .h2 {
-    padding-bottom: 10px;
-    margin-top: 10px;
-  } 
+#h2
+{
+  color:rgb(250, 58, 0);
+}
 
+.h2 {
+    padding-bottom: 20px;
+    margin-top: 1px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgb(14, 14, 14);
+    padding-bottom: 10px;
+    background-color: rgba(193, 241, 19, 0.658);
+    border-radius: 14px;
+} 
   input[type="text"],
   input[type="password"],
   input[type="email"],

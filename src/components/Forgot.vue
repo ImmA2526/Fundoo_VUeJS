@@ -39,21 +39,20 @@
     padding-bottom: 20px;
     margin-top: 1px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-   color:burlywood;
- 
+    color:rgb(252, 248, 6);
+    background-color:black;
     padding-bottom: 10px;
-    background-color: rgba(78, 52, 12, 0.966);
     border-radius: 14px;
 } 
 
 #h2
 {
-  color:rgb(229, 245, 13); 
+  color:white;
 }
 .blank
 {
     padding-bottom: 6px;
-    background-color:rgba(78, 52, 12, 0.966);
+    background-color:black;
     border-radius: 20px;
 
 }
@@ -67,7 +66,7 @@ textarea, select {
     width: 110%;
     height: 30px;
     margin-left: 10%;
-    border-color: rgba(122, 79, 15, 0.616);
+     border-color: deepskyblue;
     position: relative;
     border-radius: 10px;
 }
@@ -92,6 +91,7 @@ label {
 
     background-color:rgba(112, 41, 0, 0.568);
     border-color:rgba(78, 52, 12, 0.966);    
+    border-radius:20px;
 }
 
 #btn:hover {

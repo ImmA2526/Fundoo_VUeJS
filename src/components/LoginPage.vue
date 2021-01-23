@@ -12,7 +12,7 @@
 <div class="form-group row">
         <div class="col-sm-7">
           <input type="email" id="email" name="EmailID" required />
-          <span>Email</span>
+          <span id="em">Email</span>
         </div>
       </div>
 
@@ -57,7 +57,6 @@
 
 .blank
 {
-    /* background-color: aqua; */
     padding-bottom: 6px;
     background-color:black;
     border-radius: 20px;
@@ -75,7 +74,7 @@
 /*Forgot Link*/
 .forgot {
     
-    padding-left: 70px;
+    padding-left: 140px;
     margin-top: 6px;
     margin-bottom:12px;
 }
@@ -97,6 +96,10 @@ textarea, select {
 
 /* SPAN AND BOX UPR  */
 
+#em
+{
+    width: 40px;
+}
 span
 {
     position: absolute;
@@ -106,7 +109,7 @@ span
     transition: 0.5;
     margin-inline: 120px;
     pointer-events: none;
-    width: 140px;    
+    width: 80px;    
 }
 
 input:focus + span,input:valid + span
@@ -122,11 +125,11 @@ input:focus + span,input:valid + span
 #bt {
     background-color:rgb(46, 135, 250);
     border-radius:20px;
-margin-bottom: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
-    width: 30%;
+    width: 24%;
+    margin-left: 220px;
     height:40px;
-    /* border-color: chartreuse; */
 }
 
 #bt:hover {
@@ -136,7 +139,8 @@ margin-bottom: 10px;
 /* create button */
 #ok
 {
-    margin-right: 194px;
+    /* margin-right: 20px; */
+    padding-left: 80px;
 }
 
 .a {

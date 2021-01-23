@@ -114,13 +114,13 @@ input:focus + span,input:valid + span
     margin-left: 400px;
     background-color:rgba(112, 41, 0, 0.568);
     border-color:rgba(78, 52, 12, 0.966);
-        
+ border-radius:20px;
+ width: 80px;       
 }
 
 #rb:hover {
         background-color:rgba(0, 107, 214, 0.514);
     }
-
 
 /* Center form */
 .full

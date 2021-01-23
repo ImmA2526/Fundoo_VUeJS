@@ -9,21 +9,23 @@
       </center>
 
 
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-8">
-                    <input type="email" id="email" placeholder="Email">
-                </div>
-            </div>
+<div class="form-group row">
+      <label class="col-sm-2 col-form-label" >Email</label>
+      <div class="col-sm-6">
+        <input type="text" id="email" name="Email Id" placeholder="Email Id"/>
+      </div>
+     
+    </div>
+
+
             <div class="form-group row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-8">
-                    <button type="button" id="resetBtn" class="btn btn-primary">Submit</button>
-                    <a class="a" href="Login.html">Login</a>
+                    <a class="a" href="Login.html">Login Instead</a>
+                    <button type="button" id="btn" class="btn btn-primary">Send</button>
+ 
                 </div>
             </div>
-
-
 
       <div class="blank"></div>
     </form>
@@ -37,7 +39,7 @@
     padding-bottom: 20px;
     margin-top: 1px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color:burlywood;
+   color:burlywood;
  
     padding-bottom: 10px;
     background-color: rgba(78, 52, 12, 0.966);
@@ -60,63 +62,46 @@ input[type=text],
 input[type=password], 
 input[type=email], 
 textarea, select {
-    padding: 14px 20px;
+    padding: 10px 20px;
     margin: 11px 0;
-    width: 100%;
+    width: 110%;
     height: 30px;
-    margin-left: 40%;
+    margin-left: 10%;
     border-color: rgba(122, 79, 15, 0.616);
     position: relative;
     border-radius: 10px;
 }
 
-/* SPAN AND BOX UPR  */
-
-span
-{
-    position: absolute;
-    top:50%;
-    left: 50px;
-    transform: translateY(-50%);
-    transition: 0.5;
-    margin-inline: 120px;
-    pointer-events: none;
-    width: 140px;
-    
-}
-
-input:focus + span,input:valid + span
-{
-    top:1px;
-    left: 40px;
-    color:rgba(78, 52, 12, 0.966);
-    padding: 2px;
-    background: white;
+label {
+    display: flex;
+    justify-content: left;
+    text-align: right;
+    width: 200px;
+    line-height: 35px;
+    color: black;
+    margin-left:96px;
 }
 
 .a {
     text-decoration: none;
-    padding-left: 20%;
+    margin-right: 110px;
 }
 
-/* Reset Button */
-#rb{
-    margin-left: 400px;
+/*  Button */
+#btn{
+
     background-color:rgba(112, 41, 0, 0.568);
-    border-color:rgba(78, 52, 12, 0.966);
-        
+    border-color:rgba(78, 52, 12, 0.966);    
 }
 
-#rb:hover {
+#btn:hover {
         background-color:rgba(0, 107, 214, 0.514);
     }
-
 
 /* Center form */
 .full
 {
   margin-left: 600px;
 }
-
 </style>
  

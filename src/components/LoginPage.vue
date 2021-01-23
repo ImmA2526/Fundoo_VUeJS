@@ -78,6 +78,7 @@ textarea, select {
     margin-left: 40%;
     border-color: deepskyblue;
     position: relative;
+    border-radius: 10px;
 }
 
 /* SPAN AND BOX UPR  */

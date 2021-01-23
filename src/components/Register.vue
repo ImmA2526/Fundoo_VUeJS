@@ -3,9 +3,10 @@
 <div class="full">
   <form class="logform">
     <center><div class="h2">
-      <h2>Fundoo Nodes</h2>
+      <h2>Fundoo Notes</h2>
       <h3>Registraion Page</h3>
     </div></center>
+
 
     <!--Names-->
     <div class="form-group row">
@@ -48,5 +49,63 @@
 
 
 <style scoped>
-    @import "../assets/Register.css";
+   
+
+.full
+{
+  margin-left: 600px;
+}
+
+  .h2 {
+    padding-bottom: 10px;
+    margin-top: 10px;
+  } 
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea,
+  select {
+    padding: 12px 20px;
+    margin: 12px 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 100%;
+    height: 30px;
+    margin-right: 10%;
+
+  }
+  
+  label {
+    display: flex;
+    justify-content: left;
+    text-align: right;
+    width: 200px;
+    line-height: 28px;
+    color: black;
+    margin-left: 30px;
+  }
+  
+   #ok
+  {
+    margin-right: 40px;
+  }
+   
+  button {
+    background-color: cornflowerblue;
+    color: black;
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin: 11px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+  }
+
+  
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
 </style>

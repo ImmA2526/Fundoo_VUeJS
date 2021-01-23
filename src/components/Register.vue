@@ -92,7 +92,7 @@
 
 #h2
 {
-  color:rgb(250, 250, 250);
+  color:rgb(25, 6, 192);
 }
 
 /* Text Box */

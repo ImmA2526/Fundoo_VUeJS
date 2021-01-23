@@ -3,7 +3,7 @@
 <div class="full">
 <form class="logform">
            <center> <div class="h2">
-                <h2>Fundoo Notes</h2>
+                <h2 id="h2">Fundoo Notes</h2>
                 <h3>Login</h3>
             </div></center>
             
@@ -49,6 +49,11 @@
     background-color:black;
     border-radius: 14px;
 } 
+
+#h2
+{
+  color:white;
+}
 
 .blank
 {

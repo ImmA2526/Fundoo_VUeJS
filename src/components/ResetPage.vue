@@ -3,7 +3,7 @@
     <form class="logform">
       <center>
         <div class="h2">
-          <h2>Fundoo Notes</h2>
+          <h2 id="h2">Fundoo Notes</h2>
           <h3>Reset Password</h3>
         </div>
       </center>
@@ -47,12 +47,17 @@
     padding-bottom: 20px;
     margin-top: 1px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color:rgb(229, 245, 13);
+  color:burlywood;
+ 
     padding-bottom: 10px;
     background-color: rgba(78, 52, 12, 0.966);
     border-radius: 14px;
 } 
 
+#h2
+{
+  color:rgb(229, 245, 13); 
+}
 .blank
 {
     padding-bottom: 6px;

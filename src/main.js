@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 import Register from './components/Register.vue'
 import Login from './components/LoginPage.vue'
 import Reset from './components/ResetPage.vue'
+import Forgot from './components/Forgot.vue'
 
 
 // import VueMaterial from 'vue-material'
@@ -14,9 +15,7 @@ import Reset from './components/ResetPage.vue'
 
 // Vue.use(VueMaterial)
 
-
 Vue.config.productionTip = false
-
 Vue.use(VueRouter);
 
 
@@ -37,17 +36,20 @@ const routes = [{
     path: '/rs',
     name: 'reset',
     component: Reset
+  },
+  
+  {
+    path: '/fs',
+    name: 'forgot',
+    component: Forgot
     }
 
 ];
-
 
 const router = new VueRouter({
   mode: 'history',
   routes: routes,
 });
-
-
 
 new Vue({
   el: '#app',

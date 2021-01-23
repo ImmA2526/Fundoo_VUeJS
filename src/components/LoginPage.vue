@@ -34,6 +34,7 @@
                         <button id="bt" type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </div>
+                <div class="blank"></div>
         </form>
 </div>  
 </template>
@@ -49,12 +50,20 @@
     border-radius: 14px;
 } 
 
+.blank
+{
+    /* background-color: aqua; */
+    padding-bottom: 6px;
+    background-color:black;
+    border-radius: 20px;
+
+}
 /* form */
 .logform {
     border: 2px solid #f1f1f1;
     border-radius: 12px;
     width: 60%;
-    height: 60%;
+    height: 64%;
     margin-top: 40px; 
 }
 

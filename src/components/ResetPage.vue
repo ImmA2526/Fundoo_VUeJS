@@ -35,6 +35,7 @@
           <button id="rb" type="submit" class="btn btn-primary">Reset</button>
         </div>
       </div>
+      <div class="blank"></div>
     </form>
   </div>
 </template>
@@ -48,10 +49,17 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color:rgb(229, 245, 13);
     padding-bottom: 10px;
-    background-color: rgba(194, 116, 0, 0.658);
+    background-color: rgba(78, 52, 12, 0.966);
     border-radius: 14px;
 } 
 
+.blank
+{
+    padding-bottom: 6px;
+    background-color:rgba(78, 52, 12, 0.966);
+    border-radius: 20px;
+
+}
 /* Input Box */
 input[type=text], 
 input[type=password], 
@@ -62,9 +70,9 @@ textarea, select {
     width: 100%;
     height: 30px;
     margin-left: 40%;
-    border-color: deepskyblue;
+    border-color: rgba(122, 79, 15, 0.616);
     position: relative;
-     border-radius: 10px;
+    border-radius: 10px;
 }
 
 /* SPAN AND BOX UPR  */
@@ -84,9 +92,9 @@ span
 
 input:focus + span,input:valid + span
 {
-    top:0;
+    top:1px;
     left: 40px;
-    color:dodgerblue;
+    color:rgba(78, 52, 12, 0.966);
     padding: 2px;
     background: white;
 }
@@ -100,7 +108,8 @@ input:focus + span,input:valid + span
 #rb{
     margin-left: 400px;
     background-color:rgba(112, 41, 0, 0.568);
-    border-color:rgb(252, 23, 7);    
+    border-color:rgba(78, 52, 12, 0.966);
+        
 }
 
 #rb:hover {

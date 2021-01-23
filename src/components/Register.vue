@@ -39,9 +39,10 @@
       <div class="col-sm-1"></div>
       <div class="col-sm-10">
         <a id="ok" href="LoginPage.html">Login Instead</a>
-        <button id="bt" type="submit" class="btn btn-primary">Submit</button>
+        <button id="btn" type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
+    <div class="blank"></div>
   </form>
 </div> 
 </template>
@@ -49,71 +50,75 @@
 
 <style scoped>
    
-
 .full
 {
   margin-left: 600px;
 }
 
-#h2
+/* Button */
+#btn
 {
-  color:rgb(250, 58, 0);
+    background-color:rgba(66, 170, 255, 0.856);
+    border-radius:20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 30%;
+    height:40px;
+    border-color:rgba(200, 152, 228, 0.699);
 }
 
+#btn:hover {
+        background-color:rgba(76, 117, 252, 0.815);
+    }
+
+.blank
+{
+    padding-bottom: 6px;
+    background-color:rgba(200, 152, 228, 0.699);
+    border-radius: 40px;
+}
+
+/* HEading */
 .h2 {
     padding-bottom: 20px;
     margin-top: 1px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color:rgb(14, 14, 14);
     padding-bottom: 10px;
-    background-color: rgba(193, 241, 19, 0.658);
+    background-color: rgba(200, 152, 228, 0.699);
     border-radius: 14px;
-} 
+}
+
+#h2
+{
+  color:rgb(250, 250, 250);
+}
+
+/* Text Box */
   input[type="text"],
   input[type="password"],
   input[type="email"],
   textarea,
   select {
     padding: 12px 20px;
-    margin: 12px 0;
-    box-sizing: border-box;
-    border-radius: 8px;
+    margin: 10px 0;
     width: 100%;
     height: 30px;
     margin-right: 10%;
-
+    border-color: rgba(200, 152, 228, 0.699);
+    position: relative;
+    border-radius: 10px;
   }
   
   label {
     display: flex;
     justify-content: left;
-    text-align: right;
+    text-align: center;
     width: 200px;
     line-height: 28px;
     color: black;
     margin-left: 30px;
   }
-  
-   #ok
-  {
-    margin-right: 40px;
-  }
    
-  button {
-    background-color: cornflowerblue;
-    color: black;
-    border-radius: 12px;
-    padding: 14px 20px;
-    margin: 11px 0;
-    border: none;
-    cursor: pointer;
-    width: 50%;
-  }
-
-  
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
 </style>

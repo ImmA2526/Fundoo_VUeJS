@@ -121,9 +121,8 @@ margin-bottom: 10px;
     cursor: pointer;
     width: 30%;
     height:40px;
-    border-color: chartreuse;
+    /* border-color: chartreuse; */
 }
-
 
 #bt:hover {
         background-color:rgba(76, 117, 252, 0.815);

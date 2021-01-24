@@ -1,58 +1,14 @@
-import Vue from 'vue';
-import App from './App.vue';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./Router";
 
-import VueRouter from 'vue-router';
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+Vue.use(VueMaterial)
 
-import Register from './components/Register.vue'
-import Login from './components/LoginPage.vue'
-import Reset from './components/ResetPage.vue'
-import Forgot from './components/Forgot.vue'
-
-
-// import VueMaterial from 'vue-material'
-// import 'vue-material/dist/vue-material.min.css'
-// import 'vue-material/dist/theme/default.css'
-
-// Vue.use(VueMaterial)
-
-Vue.config.productionTip = false
-Vue.use(VueRouter);
-
-
-const routes = [{
-
-  path: '/rg',
-  name: 'register',
-  component: Register
-},
-
-{
-  path: '/lg',
-  name: 'login',
-  component: Login
-  },
-  
-  {
-    path: '/rs',
-    name: 'reset',
-    component: Reset
-  },
-  
-  {
-    path: '/fs',
-    name: 'forgot',
-    component: Forgot
-    }
-
-];
-
-const router = new VueRouter({
-  mode: 'history',
-  routes: routes,
-});
+Vue.config.productionTip = false;
 
 new Vue({
-  el: '#app',
   router,
   render: h => h(App)
-});
+}).$mount("#app");

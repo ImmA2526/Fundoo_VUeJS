@@ -2,25 +2,17 @@
   <div>
     <form novalidate class="md-layout" @submit.prevent="validateUser">
       <md-card class="md-layout-item md-size-50 md-small-size-100">
-             <center>
-        <div class="h2">
-          <h2 id="h2">Fundoo Notes</h2>
-          <h3>Forgot Password</h3>
-        </div>
-      </center>
-
+        <center>
+          <div class="h2">
+            <h2 id="h2">Fundoo Notes</h2>
+            <h3>Forgot Password</h3>
+          </div>
+        </center>
 
         <md-card-content>
           <md-field :class="getValidationClass('email')">
             <label for="email">Email</label>
-            <md-input
-              type="email"
-              name="email"
-              id="email"
-              autocomplete="email"
-              v-model="form.email"
-              :disabled="sending"
-            />
+            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending"/>
             <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
             <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
           </md-field>
@@ -33,8 +25,6 @@
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
-
-      <md-snackbar :md-active.sync="userSaved">The user {{ loginUser }} successfully login!</md-snackbar>
     </form>
   </div>
 </template>
@@ -48,18 +38,18 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      email: null
+      email: null,
     },
     userSaved: false,
-    sending: false
+    sending: false,
   }),
   validations: {
     form: {
       email: {
         required,
-        email
-      }
-    }
+        email,
+      },
+    },
   },
   methods: {
     getValidationClass(fieldName) {
@@ -67,7 +57,7 @@ export default {
 
       if (field) {
         return {
-          "md-invalid": field.$invalid && field.$dirty
+          "md-invalid": field.$invalid && field.$dirty,
         };
       }
     },
@@ -92,8 +82,8 @@ export default {
       if (!this.$v.$invalid) {
         this.saveUser();
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -106,43 +96,27 @@ export default {
 }
 
 .h2 {
-    padding-bottom: 10px;
-    padding-top: 6px;
-    margin-top: 1px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color:rgb(252, 248, 6);
-    background-color:black;
-    padding-bottom: 10px;
-    border-radius: 14px;
-} 
-
-#h2
-{
-  color:white;
+  padding-bottom: 10px;
+  padding-top: 6px;
+  margin-top: 1px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: rgb(252, 248, 6);
+  background-color: black;
+  padding-bottom: 10px;
+  border-radius: 14px;
 }
-.blank
-{
-    padding-bottom: 6px;
-    background-color:black;
-    border-radius: 20px;
 
+#h2 {
+  color: white;
+}
+.blank {
+  padding-bottom: 6px;
+  background-color: black;
+  border-radius: 20px;
 }
 
 .md-card {
   margin-left: 400px;
   margin-top: 150px;
 }
-// .md-card-header {
-//   text-align: center;
-//   font-size: 150%;
-// }
-// .md-card-media {
-//   margin-top: 9px;
-//   width: 300px;
-//   height: 300px;
-// }
-// .md-card-content {
-//   text-align: left;
-//   font-size: 150%;
-// }
 </style>

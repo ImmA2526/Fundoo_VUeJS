@@ -11,31 +11,17 @@
         <md-card-content>
           <md-field :class="getValidationClass('email')">
             <label for="email">Email</label>
-            <md-input
-              type="email"
-              name="email"
-              id="email"
-              autocomplete="email"
-              v-model="form.email"
-              :disabled="sending"
-            />
+            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
             <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
             <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
           </md-field>
           <md-field :class="getValidationClass('password')">
             <label for="password">Password</label>
-            <md-input
-              type="password"
-              name="password"
-              id="password"
-              autocomplete="password"
-              v-model="form.password"
-              :disabled="sending"
-            />
+            <md-input type="password" name="password" id="password" autocomplete="password" v-model="form.password" :disabled="sending" />
             <span class="md-error" v-if="!$v.form.password.required">The password is required</span>
             <span class="md-error" v-else-if="!$v.form.password.minlength">Invalid password</span>
           </md-field>
-             <md-button to="./ForgotPassword" class="md-primary">Forgot Password?</md-button>
+             <md-button class="md-primary">Forgot Password?</md-button>
         </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
@@ -43,21 +29,16 @@
         <md-card-actions>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-button type="submit" class="md-primary" :disabled="sending">Create account</md-button>
+              <md-button  type="submit" class="md-primary" :disabled="sending">Create account</md-button>
             </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button
-                type="submit"
-                class="md-dense md-raised md-primary"
-                :disabled="sending"
-              >Next</md-button>
+              <md-button type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Next</md-button>
             </div>
           </div>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
 
-      <md-snackbar :md-active.sync="userSaved">The user {{ loginUser }} successfully login!</md-snackbar>
     </form>
   </div>
 </template>
@@ -160,18 +141,5 @@ export default {
 .md-card {
   margin-left: 400px;
   margin-top: 150px;
-}
-.md-card-header {
-  text-align: center;
-  font-size: 150%;
-}
-.md-card-media {
-  margin-top: 9px;
-  width: 300px;
-  height: 300px;
-}
-.md-card-content {
-  text-align: left;
-  font-size: 150%;
 }
 </style>

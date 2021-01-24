@@ -14,17 +14,8 @@
               <div class="md-layout-item md-small-size-100">
                 <md-field :class="getValidationClass('firstName')">
                   <label for="first-name">First Name</label>
-                  <md-input
-                    name="first-name"
-                    id="first-name"
-                    autocomplete="given-name"
-                    v-model="form.firstName"
-                    :disabled="sending"
-                  />
-                  <span
-                    class="md-error"
-                    v-if="!$v.form.firstName.required"
-                  >The first name is required</span>
+                  <md-input name="first-name" id="first-name" autocomplete="given-name" v-model="form.firstName" :disabled="sending" />
+                  <span class="md-error" v-if="!$v.form.firstName.required" >The first name is required</span>
                   <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
                 </md-field>
               </div>
@@ -32,13 +23,7 @@
               <div class="md-layout-item md-small-size-100">
                 <md-field :class="getValidationClass('lastName')">
                   <label for="last-name">Last Name</label>
-                  <md-input
-                    name="last-name"
-                    id="last-name"
-                    autocomplete="family-name"
-                    v-model="form.lastName"
-                    :disabled="sending"
-                  />
+                  <md-input name="last-name" id="last-name" autocomplete="family-name" v-model="form.lastName" :disabled="sending"/>
                   <span class="md-error" v-if="!$v.form.lastName.required">The last name is required</span>
                   <span class="md-error" v-else-if="!$v.form.lastName.minlength">Invalid last name</span>
                 </md-field>
@@ -47,14 +32,7 @@
 
             <md-field :class="getValidationClass('email')">
               <label for="email">Email</label>
-              <md-input
-                type="email"
-                name="email"
-                id="email"
-                autocomplete="email"
-                v-model="form.email"
-                :disabled="sending"
-              />
+              <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending"/>
               <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
               <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
             </md-field>
@@ -63,14 +41,7 @@
               <div class="md-layout-item md-small-size-100">
                 <md-field :class="getValidationClass('password')">
                   <label for="last-name">Password</label>
-                  <md-input
-                    type="password"
-                    name="password"
-                    id="password"
-                    autocomplete="password"
-                    v-model="form.password"
-                    :disabled="sending"
-                  />
+                  <md-input type="password" name="password" id="password" autocomplete="password" v-model="form.password" :disabled="sending" />
                   <span class="md-error" v-if="!$v.form.password.required">The password is required</span>
                   <span class="md-error" v-else-if="!$v.form.password.minlength">Invalid password</span>
                 </md-field>
@@ -79,14 +50,7 @@
               <div class="md-layout-item md-small-size-100">
                 <md-field :class="getValidationClass('confirm')">
                   <label for="last-name">Confirm</label>
-                  <md-input
-                    type="password"
-                    name="confirm"
-                    id="confirm"
-                    autocomplete="confirm"
-                    v-model="form.confirm"
-                    :disabled="sending"
-                  />
+                  <md-input type="password" name="confirm" id="confirm" autocomplete="confirm" v-model="form.confirm" :disabled="sending" />
                   <span class="md-error" v-if="!$v.form.confirm.required">The confirm is required</span>
                   <span class="md-error" v-else-if="!$v.form.confirm.minlength">Invalid confirm</span>
                 </md-field>
@@ -103,19 +67,12 @@
               <md-button type="submit" class="md-primary" :disabled="sending">Sign in instead</md-button>
             </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button
-                type="submit"
-                class="md-dense md-raised md-primary"
-                :disabled="sending"
-              >Next</md-button>
+              <md-button type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Next</md-button>
             </div>
           </div>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
-
-      <!-- <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar> -->
-    
     </form>
   </div>
 </template>
@@ -218,32 +175,29 @@ export default {
   left: 0;
 }
 
-
-    .h2 {
-    padding-bottom: 10px;
-    margin-top: 1px;
-    padding-top: 6px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color:rgb(14, 14, 14);
-    padding-bottom: 10px;
-    background-color: rgba(200, 152, 228, 0.699);
-    border-radius: 14px;
-    }
-  #h2
-    {
-    color:rgb(25, 6, 192);
-    }
-
-
- .blank
-    {
-    padding-bottom: 8px;
-    background-color:rgba(200, 152, 228, 0.699);
-    border-radius: 10px;
-    }
-.md-card {
-  margin-left: 400px;
-  margin-top: 150px;
+.h2 {
+padding-bottom: 10px;
+margin-top: 1px;
+padding-top: 6px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+color:rgb(14, 14, 14);
+padding-bottom: 10px;
+background-color: rgba(200, 152, 228, 0.699);
+border-radius: 14px;
+}
+#h2
+{
+color:rgb(25, 6, 192);
 }
 
+.blank
+{
+padding-bottom: 8px;
+background-color:rgba(200, 152, 228, 0.699);
+border-radius: 10px;
+}
+.md-card {
+margin-left: 400px;
+margin-top: 150px;
+}
 </style>

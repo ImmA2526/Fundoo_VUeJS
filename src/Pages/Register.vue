@@ -246,13 +246,4 @@ export default {
   margin-top: 150px;
 }
 
-// .md-card-media {
-//   margin-top: 9px;
-//   width: 200px;
-//   height: 300px;
-// }
-// .md-card-content {
-//   text-align: left;
-//   font-size: 150%;
-// }
 </style>

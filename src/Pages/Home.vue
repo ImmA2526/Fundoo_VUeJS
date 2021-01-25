@@ -1,14 +1,14 @@
 <template>
 
-  <div class="page-container">
+  <div  class="page-container">
 
     
     <md-app id="tb">
 
-      <md-app-toolbar  class="md-primary" md-elevation="0">
+      <md-app-toolbar   class="md-primary" md-elevation="0">
 
         <md-button  class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
-          <md-icon >keyboard_arrow_right</md-icon>
+          <md-icon id="tb" >keyboard_arrow_right</md-icon>
         </md-button>
               <md-tabs class="md-primary" md-alignment="centered">
       <md-tab id="tab-home" md-label="Home"></md-tab>
@@ -32,7 +32,7 @@
         </md-toolbar>
 
         <md-list id="tb">
-          <md-list-item>
+          <md-list-item >
             <md-icon id="notes">notes</md-icon>
             <span id="notes" class="md-list-item-text">Notes</span>
           </md-list-item>
@@ -55,9 +55,9 @@
       </md-app-drawer>
 
       <md-app-content>
-      <div>
-        <h3 style="text-decoration: blink">Welcome To Fundoo Notes</h3>
-      </div>
+<h2>Welcome To Fundoo Notes</h2>
+  
+  
       </md-app-content>
     </md-app>
   </div>

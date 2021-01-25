@@ -1,6 +1,8 @@
 <template>
   <div>
+    <!-- <form  @submit.prevent="handleSubmit"> -->
     <form novalidate class="md-layout" @submit.prevent="validateUser">
+
       <md-card class="md-layout-item md-size-50 md-small-size-100">
         <center>
           <div class="h2">
@@ -21,15 +23,22 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit" class="md-dense md-raised md-primary" :disabled="sending">Next</md-button>
+          <md-button type="submit" class="md-dense md-raised md-primary" :disabled="sending">Send Mail</md-button>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
+      <md-snackbar :md-active.sync="userSaved">The user {{ loginUser }} Password sent succesfully</md-snackbar>
     </form>
   </div>
 </template>
 
 <script>
+
+
+
+// http://fundoonotes.incubation.bridgelabz.com/api/user/reset    Forgot and reset link
+import axios from 'axios'
+
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 
@@ -61,6 +70,16 @@ export default {
         };
       }
     },
+// email
+    async handleSubmit()
+    {
+      const response = await axios.post('FormValidation',{
+        email:this.form.email
+      });
+      console.log(response);
+    },
+
+
     clearForm() {
       this.$v.$reset();
       this.form.email = null;

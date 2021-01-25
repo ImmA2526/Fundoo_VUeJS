@@ -21,24 +21,27 @@
             <span class="md-error" v-if="!$v.form.password.required">The password is required</span>
             <span class="md-error" v-else-if="!$v.form.password.minlength">Invalid password</span>
           </md-field>
-             <md-button class="md-primary">Forgot Password?</md-button>
-        </md-card-content>
+             
+             <md-button to="./Forgot" class="md-primary">Forgot Password?</md-button>
+              
+                    </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-button  type="submit" class="md-primary" :disabled="sending">Create account</md-button>
+              <md-button to="./Register" class="md-primary" :disabled="sending">Create Account</md-button>
+              <!-- <md-button  type="submit" class="md-primary" >Create account</md-button> -->
             </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Next</md-button>
+              <md-button v-on:click="get" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Login</md-button>
             </div>
           </div>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
-
+<md-snackbar :md-active.sync="userSaved">The user {{ loginUser }} successfully login!</md-snackbar>
     </form>
   </div>
 </template>
@@ -70,6 +73,8 @@ export default {
       }
     }
   },
+
+
   methods: {
     getValidationClass(fieldName) {
       const field = this.$v.form[fieldName];
@@ -80,6 +85,19 @@ export default {
         };
       }
     },
+
+    post:function(){
+      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/login',{
+        email:this.form.email,
+        password:this.form.password,
+        cartId:''
+
+      }).then(function(data){
+        this.$router.push("/ResetPage")
+        console.log(data);
+      });
+    },
+
     clearForm() {
       this.$v.$reset();
       this.form.email = null;

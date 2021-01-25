@@ -9,23 +9,23 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/login",
+    path: "/",
     name: "login",
     component: Login
   },
   {
-    path: "/",
+    path: "/register",
     name: "register",
     component: Register
   },
   {
-    path: "/forgotPassword",
-    name: "forgotPassword",
+    path: "/forgot",
+    name: "forgot",
     component: ForgotPassword
   },
   {
-    path: "/resetPassword",
-    name: "resetPassword",
+    path: "/reset:/token",
+    name: "reset",
     component: ResetPassword
   }
 ];

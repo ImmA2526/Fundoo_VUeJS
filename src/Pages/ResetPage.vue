@@ -1,6 +1,8 @@
 <template>
   <div>
+    <!-- <form > -->
     <form novalidate class="md-layout" @submit.prevent="validateUser">
+   
       <md-card class="md-layout-item md-size-50 md-small-size-100">
         <center>
           <div class="h2">
@@ -13,22 +15,22 @@
           <md-field :class="getValidationClass('password')">
             <label for="password">Old Password</label>
             <md-input type="password" name="password" id="password" autocomplete="password" v-model="form.password" :disabled="sending" />
-            <span class="md-error" v-if="!$v.form.password.required" >The password is required</span>
-            <span class="md-error" v-else-if="!$v.form.password.minlength" >Invalid password</span>
+            <!-- <span class="md-error" v-if="!$v.form.password.required" >The password is required</span>
+            <span class="md-error" v-else-if="!$v.form.password.minlength" >Invalid password</span> -->
           </md-field>
 <!-- New password for reseting -->
           <md-field :class="getValidationClass('password')">
             <label for="password">New Password</label>
-            <md-input type="password" name="newPassword" id="password" v-model="form.cpassword" :disabled="sending" />
-            <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
-            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span>
+            <md-input type="password" name="newPassword" id="password" v-model="password" :disabled="sending" />
+            <!-- <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
+            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span> -->
           </md-field>
 
           <md-field :class="getValidationClass('password')">
             <label for="Newpassword">Confirm Password</label>
-            <md-input type="password" name="Confirmpassword" id="cpass" v-model="form.cpassword"  :disabled="sending" />
-            <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
-            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span>
+            <md-input type="password" name="Confirmpassword" id="cpass" v-model="cpassword"  :disabled="sending" />
+            <!-- <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
+            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span> -->
           </md-field>
 
         </md-card-content>
@@ -36,16 +38,18 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit" class="md-dense md-raised md-primary" :disabled="sending">Next</md-button>
+          <md-button v-on:click="handleSubmit" type="submit" class="md-dense md-raised md-primary" :disabled="sending">Reset</md-button>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
-      
+      <md-snackbar :md-active.sync="userSaved">The user {{ loginUser }} successfully login!</md-snackbar>
     </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
 
@@ -84,6 +88,16 @@ export default {
         };
       }
     },
+//reset 
+async handleSubmit(){
+      const response = await axios.post('reset',{
+        password:this.form.password,
+        cpassword:this.form.cpassword,
+        token: this.$index.params.token
+      });
+      console.log(response);
+      this.$router.push("/login")
+    },
     clearForm() {
       this.$v.$reset();
       this.form.password = null;
@@ -110,6 +124,8 @@ export default {
   },
 };
 </script>
+
+
 
 <style lang="scss" scoped>
 .h2 {

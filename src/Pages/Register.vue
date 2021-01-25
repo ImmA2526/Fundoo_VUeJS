@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form novalidate class="md-layout" @submit.prevent="validateUser">
+    <form novalidate class="md-layout" @submit.prevent="validateUser()" >
       <md-card class="md-layout-item md-size-50 md-small-size-50 md-with-hover">
         
         <center><div class="h2">
@@ -30,12 +30,14 @@
               </div>
             </div>
 
-            <md-field :class="getValidationClass('email')">
-              <label for="email">Email</label>
-              <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending"/>
-              <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
-              <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
-            </md-field>
+               <!-- <md-card-content> -->
+          <md-field :class="getValidationClass('email')">
+            <label for="email">Email</label>
+            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
+            <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
+            <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
+          </md-field>
+
 
             <div class="md-layout md-gutter">
               <div class="md-layout-item md-small-size-100">
@@ -64,27 +66,24 @@
         <md-card-actions>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-button type="submit" class="md-primary" :disabled="sending">Sign in instead</md-button>
-            </div>
+              <md-button to="./LoginPage" class="md-primary">Sign In Instead</md-button>
+              
+              </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Next</md-button>
+              <md-button  v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button>
             </div>
           </div>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
+   <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar>
     </form>
   </div>
 </template>
 
 <script>
 import { validationMixin } from "vuelidate";
-import {
-  required,
-  email,
-  minLength,
-  maxLength
-} from "vuelidate/lib/validators";
+import {required,email,minLength,maxLength} from "vuelidate/lib/validators";
 
 export default {
   name: "FormValidation",
@@ -136,6 +135,22 @@ export default {
         };
       }
     },
+
+    post:function(){
+      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp',{
+        lastName:this.form.lastName,
+        firstName:this.form.firstName,
+        email:this.form.email,
+        password:this.form.password,
+        cartId:'',
+        service:'advance'
+
+      }).then(function(data){
+        this.$router.push("/login")
+        console.log(data);
+      });
+    },
+
     clearForm() {
       this.$v.$reset();
       this.form.firstName = null;
@@ -158,9 +173,9 @@ export default {
 
     validateUser() {
       this.$v.$touch();
-
       if (!this.$v.$invalid) {
         this.saveUser();
+        
       }
     }
   }

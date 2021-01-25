@@ -38,7 +38,7 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button v-on:click="handleSubmit" type="submit" class="md-dense md-raised md-primary" :disabled="sending">Reset</md-button>
+          <md-button v-on:click="put" type="submit" class="md-dense md-raised md-primary" :disabled="sending">Reset</md-button>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>

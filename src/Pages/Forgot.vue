@@ -37,7 +37,7 @@
 
 
 // http://fundoonotes.incubation.bridgelabz.com/api/user/reset    Forgot and reset link
-import axios from 'axios'
+// import axios from 'axios'
 
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
@@ -72,13 +72,23 @@ export default {
     },
 // email
 
-    async handleSubmit()
-    {
-      const response = await axios.post('FormValidation',{
-        email:this.form.email
+post:function(){
+      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/reset',{
+        email:this.form.email,
+      
+      }).then(function(data){
+        this.$router.push("/login")
+        console.log(data);
       });
-      console.log(response);
     },
+
+    // async handleSubmit()
+    // {
+    //   const response = await axios.post('FormValidation',{
+    //     email:this.form.email
+    //   });
+    //   console.log(response);
+    // },
 
 
     clearForm() {

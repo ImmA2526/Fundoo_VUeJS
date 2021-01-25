@@ -66,7 +66,7 @@
         <md-card-actions>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-button type="submit" class="md-primary" :disabled="sending">Sign in instead</md-button>
+              <md-button type="submit" to="./" class="md-primary" :disabled="sending">Sign in instead</md-button>
             </div>
             <div class="md-layout-item md-small-size-100">
               <md-button  v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button>

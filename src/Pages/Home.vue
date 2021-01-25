@@ -1,12 +1,9 @@
 <template>
 
-  <div  class="page-container">
-
-    
+  <div  class="page-container">    
     <md-app id="tb">
 
       <md-app-toolbar   class="md-primary" md-elevation="0">
-
         <md-button  class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
           <md-icon id="tb" >keyboard_arrow_right</md-icon>
         </md-button>
@@ -57,7 +54,6 @@
       <md-app-content>
 <h2>Welcome To Fundoo Notes</h2>
   
-  
       </md-app-content>
     </md-app>
   </div>
@@ -81,50 +77,49 @@
 </script>
 
 <style lang="scss" scoped>
-  .md-app {
-    min-height: 350px;
-    // border: 1px solid rgba(#000, .12);
-  }
+.md-app {
+min-height: 350px;
+// border: 1px solid rgba(#000, .12);
+}
 
-   // Demo purposes only
-  .md-drawer {
-    width: 230px;
-    max-width: calc(100vw - 125px);
-  }
+// Demo purposes only
+.md-drawer {
+width: 230px;
+max-width: calc(100vw - 125px);
+}
 
-  .log
-  {
-    margin-left: 500px;
-  }
+.log
+{
+margin-left: 500px;
+}
 
-
-  // navigation
-  #tb
-  {
-    background-color: rgba(1, 12, 29, 0.671);
-  }
+// navigation
+#tb
+{
+background-color: rgba(1, 12, 29, 0.671);
+}
 
 #delete
 {
-  color:rgb(255, 0, 0);
+color:rgb(255, 0, 0);
 }
 
 #archive
 {
-  color:rgb(9, 202, 250);
+color:rgb(9, 202, 250);
 }
 
 #reminder
 {
-  color:rgb(50, 253, 9);
+color:rgb(50, 253, 9);
 }
 
 #notes
 {
-  color:rgb(255, 255, 62);
+color:rgb(255, 255, 62);
 }
 
-  #mn
+#mn
 {color: white;}
 
 </style>

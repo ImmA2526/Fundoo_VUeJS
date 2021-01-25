@@ -66,9 +66,8 @@
         <md-card-actions>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
-              <md-button to="./LoginPage" class="md-primary">Sign In Instead</md-button>
-              
-              </div>
+              <md-button type="submit" class="md-primary" :disabled="sending">Sign in instead</md-button>
+            </div>
             <div class="md-layout-item md-small-size-100">
               <md-button  v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button>
             </div>
@@ -76,7 +75,6 @@
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
-   <md-snackbar :md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar>
     </form>
   </div>
 </template>

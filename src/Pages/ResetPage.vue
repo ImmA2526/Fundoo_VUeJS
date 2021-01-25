@@ -15,22 +15,22 @@
           <md-field :class="getValidationClass('password')">
             <label for="password">Old Password</label>
             <md-input type="password" name="password" id="password" autocomplete="password" v-model="form.password" :disabled="sending" />
-            <!-- <span class="md-error" v-if="!$v.form.password.required" >The password is required</span>
-            <span class="md-error" v-else-if="!$v.form.password.minlength" >Invalid password</span> -->
+            <span class="md-error" v-if="!$v.form.password.required" >The password is required</span>
+            <span class="md-error" v-else-if="!$v.form.password.minlength" >Invalid password</span>
           </md-field>
 <!-- New password for reseting -->
           <md-field :class="getValidationClass('password')">
             <label for="password">New Password</label>
             <md-input type="password" name="newPassword" id="password" v-model="password" :disabled="sending" />
-            <!-- <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
-            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span> -->
+            <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
+            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span>
           </md-field>
 
           <md-field :class="getValidationClass('password')">
             <label for="Newpassword">Confirm Password</label>
             <md-input type="password" name="Confirmpassword" id="cpass" v-model="cpassword"  :disabled="sending" />
-            <!-- <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
-            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span> -->
+            <span class="md-error" v-if="!$v.form.cpassword.required" >The password is required</span>
+            <span class="md-error" v-else-if="!$v.form.cpassword.minlength" >Invalid password</span>
           </md-field>
 
         </md-card-content>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
@@ -89,15 +89,28 @@ export default {
       }
     },
 //reset 
-async handleSubmit(){
-      const response = await axios.post('reset',{
-        password:this.form.password,
+
+ put:function(){
+      this.$http.put('http://fundoonotes.incubation.bridgelabz.com/api/user/reset',{
+        passwor:this.form.password,
         cpassword:this.form.cpassword,
-        token: this.$index.params.token
+        cartId:'',
+
+      }).then(function(data){
+        this.$router.push("/login")
+        console.log(data);
       });
-      console.log(response);
-      this.$router.push("/login")
     },
+
+// async handleSubmit(){
+//       const response = await axios.post('reset',{
+//         password:this.form.password,
+//         cpassword:this.form.cpassword,
+//         token: this.$index.params.token
+//       });
+//       console.log(response);
+//       this.$router.push("/login")
+//     },
     clearForm() {
       this.$v.$reset();
       this.form.password = null;

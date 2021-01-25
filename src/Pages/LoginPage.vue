@@ -35,7 +35,7 @@
               <!-- <md-button  type="submit" class="md-primary" >Create account</md-button> -->
             </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button v-on:click="get" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Login</md-button>
+              <md-button v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Login</md-button>
             </div>
           </div>
         </md-card-actions>
@@ -86,6 +86,7 @@ export default {
       }
     },
 
+// loginUser
     post:function(){
       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/login',{
         email:this.form.email,
@@ -93,7 +94,7 @@ export default {
         cartId:''
 
       }).then(function(data){
-        this.$router.push("/ResetPage")
+        this.$router.push("/reset")
         console.log(data);
       });
     },

@@ -94,7 +94,7 @@ export default {
         cartId:''
 
       }).then(function(data){
-        this.$router.push("/reset")
+        this.$router.push("/home")
         console.log(data);
       });
     },

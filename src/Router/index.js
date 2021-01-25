@@ -4,10 +4,17 @@ import Login from "../Pages/LoginPage"
 import Register from "../Pages/Register"
 import ForgotPassword from "../Pages/Forgot"
 import ResetPassword from "../Pages/ResetPage"
+import Home from "../Pages/Home"
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/home",
+    name: "home",
+    component: Home
+  },
+
   {
     path: "/",
     name: "login",

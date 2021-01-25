@@ -102,15 +102,6 @@ export default {
       });
     },
 
-// async handleSubmit(){
-//       const response = await axios.post('reset',{
-//         password:this.form.password,
-//         cpassword:this.form.cpassword,
-//         token: this.$index.params.token
-//       });
-//       console.log(response);
-//       this.$router.push("/login")
-//     },
     clearForm() {
       this.$v.$reset();
       this.form.password = null;

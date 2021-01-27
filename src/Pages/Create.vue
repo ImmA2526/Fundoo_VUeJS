@@ -37,15 +37,15 @@
 
         <md-card-actions>
           <div class="icons">
-            <md-icon id="color">color_lens</md-icon>
-            <!-- <md-tooltip md-direction="bottom"></md-tooltip> -->
-            <md-icon id="edit">edit</md-icon>
-            <!-- <md-tooltip md-direction="bottom">Edit</md-tooltip> -->
-            <md-icon id="archive">archive</md-icon>
-            <!-- <md-tooltip md-direction="bottom">Archive</md-tooltip> -->
             <md-icon id="reminder">notifications</md-icon>
             <!-- <md-tooltip md-direction="bottom">Reminder</md-tooltip> -->
-          </div>
+          
+            <md-icon id="color">color_lens</md-icon>
+            <!-- <md-tooltip md-direction="bottom"></md-tooltip> -->
+            <md-icon id="archive">archive</md-icon>
+            <!-- <md-tooltip md-direction="bottom">Archive</md-tooltip> -->
+           
+            </div>
           <md-button>Action</md-button>
           <md-button>Take</md-button>
         </md-card-actions>

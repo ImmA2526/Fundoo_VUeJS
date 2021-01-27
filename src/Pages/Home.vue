@@ -46,7 +46,7 @@
           </md-list-item>
 
           <md-list-item>
-            <md-icon id="reminder">alarm</md-icon>
+            <md-icon id="reminder">notifications</md-icon>
             <span id="reminder" class="md-list-item-text">Reminders</span>
           </md-list-item>
           <md-list-item>

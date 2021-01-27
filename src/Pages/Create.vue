@@ -1,56 +1,68 @@
 <template>
-
-
   <div class="main">
-    <!-- <IconButton><CheckBoxOutlinedIcon /></IconButton> -->
-<!-- Functionality Pending  -->
-<div v-if="open == false" @click="toggle" class="createnote">
-    <md-card id="card" >
-      <!-- <md-ripple>
-        <md-card-header>
-          <div class="md-title">Card with hover effect</div> -->
-      <!-- <div class="md-subhead">It also have a ripple</div> -->
-      <!-- </md-card-header> -->
-      <!-- input div -->
-      <div class="note">  
-        <input type="text"  placeholder="Take Note...." class="input1"/>
-      </div>
-
-      <!-- <md-card-content>
-         this is the card 
-        </md-card-content> -->
-
-      <md-card-actions>
-        <div class="icons">
-          <md-icon id="color">color-palette</md-icon>
-          <md-tooltip md-direction="bottom">Color</md-tooltip>
-          <md-icon id="edit">edit</md-icon>
-          <md-tooltip md-direction="bottom">Edit</md-tooltip>
-          <md-icon id="archive">archive</md-icon>
-          <md-tooltip md-direction="bottom">Archive</md-tooltip>
-          <md-icon id="reminder">alarm</md-icon>
-          <md-tooltip md-direction="bottom">Reminder</md-tooltip>
+    <!-- Functionality Pending  -->
+<!-- 1st Note  -->
+    <!-- <div v-if="open == false" @click="toggle" class="createnote"> -->
+<div>
+      <md-card id="card">
+        <div class="note">
+          <input type="text" placeholder="Take Note...." class="input1" />
         </div>
-        <md-button>Action</md-button>
-        <md-button>Take</md-button>
-      </md-card-actions>
-      <!-- </md-ripple> -->
-    </md-card>
-</div>
+
+        <md-card-actions>
+          <div class="icons">
+           
+            <md-icon id="list_Notes">notes</md-icon>
+            <md-tooltip id="list_Notes1" md-direction="bottom">List All list_Notes</md-tooltip>
+            <md-icon id="brush">brush</md-icon>
+            <md-tooltip id="brush1" md-direction="bottom">Note with Drawing</md-tooltip>
+            <md-icon id="Notes_Image">image</md-icon>
+            <md-tooltip  id="Notes_Image1" md-direction="bottom">Note with Image</md-tooltip>
+            
+          </div>
+          <md-button>Action</md-button>
+          <md-button>Take</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
 
 
+    <!-- Create Note 2  -->
+<div>
+     <!-- <div v-if="open == false" @click="toggle" class="createnote"> -->
+      <md-card id="card1">
+        <div class="note">
+          <input type="text" placeholder="Take Note...." class="input1" />
+        </div>
 
-  </div> <!-- main <div></div> -->
-  
+        <md-card-actions>
+          <div class="icons">
+            <md-icon id="color">color_lens</md-icon>
+            <!-- <md-tooltip md-direction="bottom"></md-tooltip> -->
+            <md-icon id="edit">edit</md-icon>
+            <!-- <md-tooltip md-direction="bottom">Edit</md-tooltip> -->
+            <md-icon id="archive">archive</md-icon>
+            <!-- <md-tooltip md-direction="bottom">Archive</md-tooltip> -->
+            <md-icon id="reminder">notifications</md-icon>
+            <!-- <md-tooltip md-direction="bottom">Reminder</md-tooltip> -->
+          </div>
+          <md-button>Action</md-button>
+          <md-button>Take</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+
+  </div>
+  <!-- main <div></div> -->
 </template>
     
 
 <style lang="scss" scoped>
-.icons {
-  display: flex;
-  justify-content: flex-end;
-  margin-inline: 200px;
-}
+// .icons {
+//   display: flex;
+//   justify-content: flex-end;
+//   margin-inline: 200px;
+// }
 
 .md-card {
   width: 320px;
@@ -60,7 +72,13 @@
 }
 
 #card {
-  height: 60px;
+  height: 100px;
+  width: 600px;
+}
+
+// Card 2
+#card1 {
+  height: 180px;
   width: 600px;
 }
 #edit {
@@ -82,6 +100,34 @@
   color: rgb(214, 108, 9);
   // padding-left: 40px;
 }
+
+// Notes 1
+#brush
+{
+    padding-right: 22px
+}
+#list_Notes
+{
+ margin-right: 20px; 
+}
+#Notes_Image
+{
+  
+}
+
+#brush1
+{
+    padding-right: 180px
+}
+#list_Notes1
+{
+ margin-right: 200px; 
+}
+#Notes_Image1
+{
+  
+}
+
 </style>
 
 <script>

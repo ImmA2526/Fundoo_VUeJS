@@ -9,14 +9,16 @@
           <md-icon id="tb1" >keyboard_arrow_right</md-icon>
         </md-button>
        
+
 <div class="tabs">
 <!-- Navbar  -->
  <md-tabs>
-      <md-tab id="home" md-label="Home"></md-tab>
+      <md-tab  id="home" md-label="Home"></md-tab>
      
      <div id="log">
-      <md-tab  to="./" md-alignment="right" md-label="Logout"></md-tab>
+      <md-tab className={classes.button} to="./" md-alignment="right" md-label="Logout"></md-tab>
      </div>
+     
      
    </md-tabs>
 </div>
@@ -126,6 +128,7 @@ color:black;
 {
 background-color:white;
 }
+
 
 #delete
 {

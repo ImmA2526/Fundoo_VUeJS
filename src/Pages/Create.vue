@@ -6,7 +6,7 @@
 <div>
       <md-card id="card">
         <div class="note">
-          <input type="text" placeholder="Take Note...." class="input1" />
+          <textarea type="text" placeholder="Take Note...." class="input1" />
         </div>
 
         <md-card-actions>
@@ -32,7 +32,7 @@
      <!-- <div v-if="open == false" @click="toggle" class="createnote"> -->
       <md-card id="card1">
         <div class="note">
-          <input type="text" placeholder="Take Note...." class="input1" />
+          <textarea type="text" placeholder="Take Note...." class="text" />
         </div>
 
         <md-card-actions>
@@ -106,9 +106,30 @@
 {
     padding-right: 22px
 }
+
+
+
+.input1
+{
+  padding-top:20px ;
+  // border:none;
+  height:40px;
+  
+  width: 400px;
+}
+
+.input1, .text
+{
+  padding-top:20px ;
+  // border:none;
+
+  // align-content: center;
+  width: 400px;
+}
 #list_Notes
 {
  margin-right: 20px; 
+  color:orange; 
 }
 #Notes_Image
 {
@@ -121,7 +142,8 @@
 }
 #list_Notes1
 {
- margin-right: 200px; 
+ margin-right: 200px;
+
 }
 #Notes_Image1
 {

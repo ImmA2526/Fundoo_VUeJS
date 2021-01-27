@@ -5,7 +5,7 @@ import Register from "../Pages/Register"
 import ForgotPassword from "../Pages/Forgot"
 import ResetPassword from "../Pages/ResetPage"
 import Home from "../Pages/Home"
-// import create from "../Pages/Create"
+import color from "../components/Color"
 
 Vue.use(VueRouter);
 
@@ -16,11 +16,11 @@ const routes = [
     component: Home
   },
 
-  // {
-  //   path: "/create",
-  //   name: "create",
-  //   component: create
-  // },
+  {
+    path: "/color",
+    name: "color",
+    component: color
+  },
 
   {
     path: "/",

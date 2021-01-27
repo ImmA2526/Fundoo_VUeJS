@@ -71,7 +71,8 @@
 
 <script>
 // Importing One Component To Another
-import Create from "../Pages/Create";
+// import Create from "../components/Create";
+import Create from "../Pages/Create"
 export default {
   components: {
     Create,

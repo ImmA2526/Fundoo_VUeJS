@@ -96,7 +96,7 @@ export default {
       }).then(function(data){
         this.$router.push("/home")
         console.log(data);
-      });
+      }).catch();
     },
 
     clearForm() {

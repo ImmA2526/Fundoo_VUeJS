@@ -3,12 +3,13 @@
   <div  class="page-container">    
     <md-app id="tb">
 
-      <md-app-toolbar   class="md-primary" md-elevation="0">
+      <md-app-toolbar id="tb"   class="md-primary" md-elevation="0">
         <md-button  class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
-          <md-icon id="tb" >keyboard_arrow_right</md-icon>
+          <md-icon id="tb1" >keyboard_arrow_right</md-icon>
         </md-button>
-              <md-tabs class="md-primary" md-alignment="centered">
-      <md-tab id="tab-home" md-label="Home"></md-tab>
+       
+              <md-tabs id="tb"  class="md-primary" md-alignment="centered">
+      <md-tab  md-label="Home"></md-tab>
      <div class="log">
       <md-tab  to="./" md-alignment="right" md-label="Logout"></md-tab>
      </div>
@@ -81,13 +82,21 @@
 min-height: 350px;
 // border: 1px solid rgba(#000, .12);
 }
-
+ #tb1
+        {
+          color:black
+        }
 // Demo purposes only
 .md-drawer {
 width: 230px;
-max-width: calc(100vw - 125px);
+// max-width: calc(100vw - 125px);
+height: 700px;
 }
 
+.md-content
+{
+  height: 650px;
+}
 .log
 {
 margin-left: 500px;
@@ -96,30 +105,30 @@ margin-left: 500px;
 // navigation
 #tb
 {
-background-color: rgba(1, 12, 29, 0.671);
+background-color:white;
 }
 
 #delete
 {
-color:rgb(255, 0, 0);
+color:black;
 }
 
 #archive
 {
-color:rgb(9, 202, 250);
+color:black;
 }
 
 #reminder
 {
-color:rgb(50, 253, 9);
+color:black;
 }
 
 #notes
 {
-color:rgb(255, 255, 62);
+color:black;
 }
 
 #mn
-{color: white;}
+{color:black;}
 
 </style>

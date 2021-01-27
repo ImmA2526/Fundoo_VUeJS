@@ -3,18 +3,24 @@
   <div  class="page-container">    
     <md-app id="tb">
 
-      <md-app-toolbar id="tb"   class="md-primary" md-elevation="0">
+<!-- Toolbaar>> File Menue -->
+      <md-app-toolbar id="tb"   class="md-primary" md-elevation="0"> 
         <md-button  class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
           <md-icon id="tb1" >keyboard_arrow_right</md-icon>
         </md-button>
        
-              <md-tabs id="tb"  class="md-primary" md-alignment="centered">
-      <md-tab  md-label="Home"></md-tab>
-     <div class="log">
+<div class="tabs">
+<!-- Navbar  -->
+ <md-tabs>
+      <md-tab id="home" md-label="Home"></md-tab>
+     
+     <div id="log">
       <md-tab  to="./" md-alignment="right" md-label="Logout"></md-tab>
      </div>
      
-    </md-tabs>
+   </md-tabs>
+</div>
+     
       </md-app-toolbar>
 
       <md-app-drawer id="tb"  :md-active.sync="menuVisible"   md-persistent="mini">
@@ -82,6 +88,11 @@
 min-height: 350px;
 // border: 1px solid rgba(#000, .12);
 }
+
+.tabs
+     {
+       color:black;
+     }
  #tb1
         {
           color:black
@@ -96,10 +107,18 @@ height: 700px;
 .md-content
 {
   height: 650px;
+  color:black;
 }
-.log
+
+
+#log
 {
-margin-left: 500px;
+color:black;
+}
+
+#home
+{
+  color:black;
 }
 
 // navigation
@@ -125,6 +144,17 @@ color:black;
 
 #notes
 {
+color:black;
+}
+
+#home
+{
+color:black;
+}
+
+#log
+{
+position:absolute;
 color:black;
 }
 

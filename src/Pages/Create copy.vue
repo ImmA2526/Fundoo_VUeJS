@@ -1,19 +1,15 @@
 <template>
-
-
-  <div class="main">
+  <div class="Notes">
     <!-- <IconButton><CheckBoxOutlinedIcon /></IconButton> -->
-<!-- Functionality Pending  -->
-<div v-if="open == false" @click="toggle" class="createnote">
-    <md-card id="card" >
+
+    <md-card id="card" md-with-hover>
       <!-- <md-ripple>
         <md-card-header>
           <div class="md-title">Card with hover effect</div> -->
       <!-- <div class="md-subhead">It also have a ripple</div> -->
       <!-- </md-card-header> -->
-      <!-- input div -->
-      <div class="note">  
-        <input type="text"  placeholder="Take Note...." class="input1"/>
+      <div class="note">
+        <textarea name="text" placeholder="Take Note...."></textarea>
       </div>
 
       <!-- <md-card-content>
@@ -23,25 +19,16 @@
       <md-card-actions>
         <div class="icons">
           <md-icon id="color">color-palette</md-icon>
-          <md-tooltip md-direction="bottom">Color</md-tooltip>
           <md-icon id="edit">edit</md-icon>
-          <md-tooltip md-direction="bottom">Edit</md-tooltip>
           <md-icon id="archive">archive</md-icon>
-          <md-tooltip md-direction="bottom">Archive</md-tooltip>
           <md-icon id="reminder">alarm</md-icon>
-          <md-tooltip md-direction="bottom">Reminder</md-tooltip>
         </div>
         <md-button>Action</md-button>
         <md-button>Take</md-button>
       </md-card-actions>
       <!-- </md-ripple> -->
     </md-card>
-</div>
-
-
-
-  </div> <!-- main <div></div> -->
-  
+  </div>
 </template>
     
 

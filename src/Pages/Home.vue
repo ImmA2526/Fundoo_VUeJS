@@ -68,7 +68,7 @@
       </md-app-drawer>
 
       <md-app-content>
-        <h2>Welcome To Fundoo Notes</h2>
+        <!-- <h2>Welcome To Fundoo Notes</h2> -->
         <Create></Create>
       </md-app-content>
     </md-app>

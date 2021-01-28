@@ -1,71 +1,57 @@
 <template>
-  <div class='ui centered card'>
-    <div class="content" v-show="!showEditForm">
-      <div class='header'>
-          {{ note.title }}
-      </div>
-      <div class='meta italic'>
-          {{ note.description }}
-      </div>
+  <div>
+      <md-card>
+        <md-card-content>
 
-      <!-- <div class='extra content'>
-          <span class='right floated edit icon' v-on:click="showForm">
-          <i class='edit icon'></i>
-        </span>
-        <span class='right floated trash icon' v-on:click="deleteNote(note)">
-          <i class='trash icon'></i>
-        </span>
-      </div> -->
-
-
-      <div class='extra content'>
-          <span class='right floated edit icon' v-on:click="showForm">
-          <i class='edit icon'></i>
-        </span>
-        </div>
-    </div>
-    <div class="content" v-show="showEditForm">
-      <div class='ui form'>
-        <div class='field'>
-          <label>Title</label>
-          <input type='text' v-model="note.title" >
-        </div>
-        <div class='field'>
-          <label>Description</label>
-          <input type='text' v-model="note.description" >
-        </div>
-        <div class='ui two buttons'>
-          <button class='ui basic button' v-on:click="hideForm">
-            Close X -->
-          </button>
-        </div>
-      </div>
-    </div>
+          <!-- this is the card body -->
+        </md-card-content>
+      </md-card>
+    <!-- </md-ripple> -->
   </div>
 </template>
 
-<script type="text/javascript">
-//   import create from "../Pages/Create"
-  export default {
-      
-    props: ['note'],
-    data() {
-      return {
-        showEditForm: false,
-      };
+<style lang="scss" scoped>
+.md-card {
+  width: 260px;
+  margin: 4px;
+  height: 180px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 12px;
+}
+</style>
+
+<script>
+export default {
+  components: {
+    // Display,
+    // icons,
+  },
+  methods: {
+    close() {
+      this.open = false;
     },
-    methods: {
-     
-      showForm() {
-        this.showEditForm = true;
-      },
-    //   hideForm() {
-    //     this.showEditForm = false;
-    //   },
-    },
-  };
+  },
+
+  //Get Note Function
+  post: function () {
+    this.$http
+      .post("http://fundoonotes.incubation.bridgelabz.com/api/note", {
+        title: this.title,
+        description: this.description,
+        cartId: "",
+      })
+      .then(function (data) {
+        this.$router.push("/display");
+        console.log(data);
+      })
+      .catch();
+  },
+
+  data: () => ({
+    title: null,
+    description: null,
+  }),
+};
 </script>
 
-<style scoped>
-  .italic {font-style: italic}
-</style>

@@ -1,25 +1,18 @@
 <template>
-<div>
-  <div class="keep-input">
+  <div>
+    <!-- <div class="keep-input"> -->
     <!-- 1st Note  -->
     <div v-if="open == false" @click="toggle" class="createnote">
       <!-- <div> -->
-      <md-card id="card">
+      <md-card id="card" md-with-hover>
         <div class="note">
-          <input type="text" placeholder="Take Note...." class="input1" />
-
+          <input type="text" id="titles" v-model="title"  placeholder="Take Note...." class="input1" />
           <md-icon id="list_Notes">notes</md-icon>
-          <md-tooltip id="list_Notes1" md-direction="bottom"
-            >List All list_Notes</md-tooltip
-          >
+          <md-tooltip id="list_Notes1" md-direction="bottom">List All list_Notes</md-tooltip>
           <md-icon id="brush">brush</md-icon>
-          <md-tooltip id="brush1" md-direction="bottom"
-            >Note with Drawing</md-tooltip
-          >
+          <md-tooltip id="brush1" md-direction="bottom">Note with Drawing</md-tooltip>
           <md-icon id="Notes_Image">image</md-icon>
-          <md-tooltip id="Notes_Image1" md-direction="bottom"
-            >Note with Image</md-tooltip
-          >
+          <md-tooltip id="Notes_Image1" md-direction="bottom">Note with Image</md-tooltip>
         </div>
       </md-card>
     </div>
@@ -27,10 +20,10 @@
     <!-- Create Note 2  -->
     <!-- <div> -->
     <div v-else @on:click="toggle" class="createnote">
-      <md-card id="card1">
-        <div class="note">
-          <input type="text" class="text1" placeholder="Title..." />
-          <input type="text" placeholder="Decscription...." class="text" />
+      <md-card id="card1" md-with-hover>
+        <div class="note1">
+          <input type="text" class="text1" id="title" v-model="title"  placeholder="Take Note...." />
+          <input type="text" class="text" id="desc" v-model="description" placeholder="Decscription...."  />
         </div>
 
         <md-card-actions>
@@ -46,18 +39,18 @@
             <md-icon id="archive">archive</md-icon>
             <md-tooltip id="archive1" md-direction="bottom">Archive</md-tooltip>
           </div>
-      
+
           <div class="btn">
-            <md-button type="button" class="close" v-on:click="close">Close</md-button
+            <md-button type="button" class="close" v-on:click="close" >Close</md-button
             >
           </div>
-          <Display></Display>
+          <!-- <Display></Display> -->
         </md-card-actions>
       </md-card>
     </div>
+    <!-- </div> -->
   </div>
-  
-</div><!-- main <div></div> -->
+  <!-- main <div></div> -->
 </template>
     
 <style lang="scss" scoped>
@@ -75,26 +68,31 @@
 }
 
 #card {
-  height: 100px;
+  height: 50px;
   width: 600px;
+  border-radius: 10px;
 }
 
 // Notes 1
 #list_Notes {
   margin-right: 20px;
   color: orange;
-  padding-bottom: 28px;
+  // padding-bottom: 28px;
+  padding-bottom: 8px;
   margin-left: 20px;
 }
 
 #brush {
   padding-right: 22px;
-  padding-bottom: 28px;
+  padding-bottom: 8px;
 }
 
 #Notes_Image {
   margin-right: 20px;
-  padding-bottom: 28px;
+  padding-bottom: 8px;
+}
+.note {
+  border-radius: 10px;
 }
 // Content NAme
 #brush1 {
@@ -109,10 +107,11 @@
 // Input Field
 .input1 {
   padding-top: 10px;
-  margin-top: 20px;
+  margin-top: 4px;
   border: none;
   height: 40px;
-
+  border-radius: 10px;
+  outline: none;
   width: 380px;
 }
 
@@ -149,8 +148,9 @@
 
 // Card 2
 #card1 {
-  height: 180px;
+  height: 140px;
   width: 600px;
+  border-radius: 10px;
 }
 
 #edit {
@@ -166,53 +166,58 @@
 .text {
   padding-top: 8px;
   border: none;
-  margin-top: 30px;
+  margin-top: 8px;
   // align-content: center;
   width: 390px;
   margin-right: 126px;
+  outline: none;
 }
 
 .text1 {
   height: 40px;
   margin-right: 126px;
   width: 390px;
-  margin-top: 20px;
+  margin-top: 8px;
   border: none;
-  
+  outline: none;
 }
 </style>
 
 <script>
-import Display from "../components/Display"
+// import Display from "../components/Display";
 export default {
-  
-   components: {
-    Display,
+  components: {
+    // Display,
     // icons,
   },
   methods: {
-    close(){
-      this.open=false;
+    close() {
+      this.open = false;
     },
-
 
     toggle() {
       this.open = !this.open;
     },
-    
   },
+
+//Create Note Function
+      post:function(){
+      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/note',{
+        title:this.title,
+        description:this.description,
+        cartId:''
+
+      }).then(function(data){
+        this.$router.push("/display")
+        console.log(data);
+      }).catch();
+    },
 
   data: () => ({
     open: false,
-    name: 'keep-input',
-   return:{
-        mode: false,
-        inputKeep:{
-          title: "",
-          text: "",
-          list: []
-        }
-      }
+    title: null,
+     description: null,
+
   }),
 };
 </script>

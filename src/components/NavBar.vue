@@ -32,8 +32,8 @@
 {
     width: 520px;
     border-radius: 12px;
-    height: 40px;
-    margin-top: 20px;
+    height: 36px;
+    margin-top: 4px;
 }
 
 .text

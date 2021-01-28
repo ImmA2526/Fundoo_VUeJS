@@ -30,7 +30,7 @@
 
       <md-app-drawer id="tb" :md-active.sync="menuVisible" md-persistent="mini">
         <md-toolbar id="tb" class="md-transparent" md-elevation="0">
-          <span id="mn">Navigation</span>
+          <span id="mn">Fundoo Notes</span>
 
           <div class="md-toolbar-section-end">
             <md-button class="md-icon-button md-dense" @click="toggleMenu">

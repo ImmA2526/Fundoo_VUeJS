@@ -6,6 +6,8 @@ import ForgotPassword from "../Pages/Forgot"
 import ResetPassword from "../Pages/ResetPage"
 import Home from "../Pages/Home"
 import color from "../components/Color"
+import nav from "../components/NavBar"
+
 
 Vue.use(VueRouter);
 
@@ -14,6 +16,11 @@ const routes = [
     path: "/home",
     name: "home",
     component: Home
+  },
+  {
+    path: "/nav",
+    name: "nav",
+    component: nav
   },
 
   {

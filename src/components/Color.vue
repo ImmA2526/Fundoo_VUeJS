@@ -28,7 +28,8 @@ export default {
     
 methods:{
     colorlist(){
-const DATA = [
+// const DATA = 
+[
     { title: "MAROON", id: "#800000" },
     { title: "WHITE", id: "#FFFFFF" },
     { title: "salmon5", id: "#CFAFAF" },

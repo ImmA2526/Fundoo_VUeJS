@@ -3,10 +3,15 @@
   <div>
     <div class="text">
 
-    <div class="fundoo">
+    <!-- <div class="fundoo"> -->
+              <!-- <div class="hamburger pull-left" v-on:click="switchDrawerMode">
+              </div> -->
       <!-- <md-icon id="fun">emoji_objects</md-icon> -->
-<img src="../assets/keep.png" alt="keep">      <!-- <label class="fundoo">Fundoo</label>       -->
-    </div>
+<!-- <img src="../assets/keep.png" alt="keep">    -->
+   <!-- <label class="fundoo">Fundoo</label>       -->
+    <!-- </div> -->
+    <label class="title title-name"> Vue </label>
+        <label class="title title-app"> Keep </label>
       <md-icon id="search">search</md-icon>
       <input type="text" class="textbox" placeholder="Search" />      
       <div class="Icons">
@@ -15,6 +20,8 @@
        <md-icon id="setting">settings</md-icon>
         <md-icon id ="apps1" class="material-icons">apps</md-icon>
     </div>
+   
+
     </div>
     
   </div>
@@ -32,7 +39,7 @@
 
 .text
 {
-      margin-left: 200px;
+      margin-left: 100px;
 }
 #search
 {
@@ -53,6 +60,16 @@
         margin-left: 110px;
         color: black;
 }
+
+.title{
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .title-name{
+    font-weight: bold;
+  }
 #refresh
 {
     margin-left: 24px;
@@ -61,7 +78,7 @@
 .Icons
 {
       display: inline;
-    margin-left: 600px;
+    margin-left: 400px;
 
 // display: contents;
 // margin-left: 100px;

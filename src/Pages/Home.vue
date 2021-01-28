@@ -1,5 +1,6 @@
 <template>
   <div class="page-container">
+    <Nav></Nav>
     <md-app id="tb">
      
             <!-- Toolbaar>> File Menue -->
@@ -15,7 +16,8 @@
         </md-button>
 
         <!-- Navbar  -->
-        <Nav></Nav>
+        
+        <!-- <icons></icons> -->
         <!-- <div class="tabs">  
           <md-tabs>
             <md-tab class="home" md-label="Home"></md-tab>
@@ -78,10 +80,12 @@
 // import Create from "../components/Create";
 import Create from "../Pages/Create"
 import Nav from "../components/NavBar"
+// import icons from "../components/icons"
 export default {
   components: {
     Create,
     Nav,
+    // icons,
   },
   name: "PersistentMini",
   data: () => ({

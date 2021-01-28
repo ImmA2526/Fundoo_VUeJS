@@ -2,8 +2,11 @@
   <!-- Main -->
   <div>
     <div class="text">
-      <md-icon id="search">search</md-icon><input type="text" class="textbox" placeholder="Search" />
-      
+    <div class="fundoo">
+      <md-icon id="fun">keep</md-icon>
+    
+    </div>
+      <md-icon id="search">search</md-icon><input type="text" class="textbox" placeholder="Search" />      
       <div class="Icons">
       <md-icon id="refresh">refresh</md-icon>
       <md-icon id="listview">view_stream</md-icon>
@@ -27,11 +30,12 @@
 
 .text
 {
-      margin-left: 80px;
+      margin-left: 200px;
 }
 #search
 {
     margin-left: 24px;
+    color:black;
 }
 #listview
 {
@@ -55,7 +59,7 @@
 .Icons
 {
       display: inline;
-    margin-left: 160px;
+    margin-left: 600px;
 
 // display: contents;
 // margin-left: 100px;

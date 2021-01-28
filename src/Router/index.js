@@ -7,7 +7,7 @@ import ResetPassword from "../Pages/ResetPage"
 import Home from "../Pages/Home"
 import color from "../components/Color"
 import nav from "../components/NavBar"
-
+import display from "../components/Display"
 
 Vue.use(VueRouter);
 
@@ -17,6 +17,13 @@ const routes = [
     name: "home",
     component: Home
   },
+
+  {
+    path: "/display",
+    name: "display",
+    component: display
+  },
+
   {
     path: "/nav",
     name: "nav",

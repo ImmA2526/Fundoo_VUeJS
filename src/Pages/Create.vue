@@ -45,9 +45,11 @@
             <md-icon id="archive">archive</md-icon>
             <md-tooltip id="archive1" md-direction="bottom">Archive</md-tooltip>
           </div>
+      
           <div class="btn">
-            <md-button type="button" class="btn btn-secondary" data-dismiss="card">Close</md-button
+            <md-button type="button" class="close" v-on:click="close">Close</md-button
             >
+            <button class="btn btn-default btn-sm pull-right" v-on:click="addKeep">Done</button>
           </div>
         </md-card-actions>
       </md-card>
@@ -181,9 +183,31 @@
 <script>
 export default {
   methods: {
+    close(){
+      this.open=false;
+    },
+
+     addKeep: function(){
+        this.$store.commit('changeMode', 'input');
+        this.inputKeep.text = this.$refs.text.innerHTML;
+        if(this.inputKeep.title.length > 0 || this.inputKeep.text.length > 0){
+          this.$store.commit('addKeep', {
+            title: this.inputKeep.title,
+            text: this.inputKeep.text,
+            list: this.inputKeep.list,
+            labels: [],
+            color: "white"
+          });
+          this.$refs.text.innerHTML = "";
+          this.inputKeep.title = "";
+          this.inputKeep.text = "";
+        }
+      },
+      
     toggle() {
       this.open = !this.open;
     },
+    
   },
 
   data: () => ({

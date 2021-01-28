@@ -27,7 +27,7 @@
 
 .text
 {
-      margin-left: 270px;
+      margin-left: 80px;
 }
 #search
 {
@@ -40,19 +40,23 @@
 #setting
 {
     margin-left: 24px;
+    color: black;
 }
 #apps1
 {
-        margin-left: 210px;
+        margin-left: 110px;
+        color: black;
 }
 #refresh
 {
     margin-left: 24px;
+    color: black;
 }
 .Icons
 {
       display: inline;
-    margin-left: 260px;
+    margin-left: 160px;
+
 // display: contents;
 // margin-left: 100px;
 }

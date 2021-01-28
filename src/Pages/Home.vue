@@ -1,17 +1,21 @@
 <template>
   <div class="page-container">
     <md-app id="tb">
-      <!-- Toolbaar>> File Menue -->
+     
+            <!-- Toolbaar>> File Menue -->
       <md-app-toolbar id="tb" class="md-primary" md-elevation="0">
+      
         <md-button
           class="md-icon-button"
           @click="toggleMenu"
           v-if="!menuVisible"
         >
+        
           <md-icon id="tb1">keyboard_arrow_right</md-icon>
         </md-button>
 
         <!-- Navbar  -->
+        <Nav></Nav>
         <!-- <div class="tabs">  
           <md-tabs>
             <md-tab class="home" md-label="Home"></md-tab>
@@ -73,9 +77,11 @@
 // Importing One Component To Another
 // import Create from "../components/Create";
 import Create from "../Pages/Create"
+import Nav from "../components/NavBar"
 export default {
   components: {
     Create,
+    Nav,
   },
   name: "PersistentMini",
   data: () => ({

@@ -78,7 +78,7 @@
 <script>
 // Importing One Component To Another
 // import Create from "../components/Create";
-import Create from "../Pages/Create"
+import Create from "../components/Create"
 import Nav from "../components/NavBar"
 // import icons from "../components/icons"
 export default {

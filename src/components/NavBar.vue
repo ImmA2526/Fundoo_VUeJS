@@ -10,9 +10,8 @@
 <!-- <img src="../assets/keep.png" alt="keep">    -->
    <!-- <label class="fundoo">Fundoo</label>       -->
     <!-- </div> -->
-    <label class="title title-name"> Vue </label>
-        <label class="title title-app"> Keep </label>
-      <md-icon id="search">search</md-icon>
+    <label class="title title-name"> Keep </label>
+              <md-icon id="search">search</md-icon>
       <input type="text" class="textbox" placeholder="Search" />      
       <div class="Icons">
       <md-icon id="refresh">refresh</md-icon>

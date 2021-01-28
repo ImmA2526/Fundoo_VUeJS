@@ -38,7 +38,7 @@
 
 .text
 {
-      margin-left: 100px;
+      margin-left: 40px;
 }
 #search
 {
@@ -68,6 +68,7 @@
   }
   .title-name{
     font-weight: bold;
+    margin-right:200px;
   }
 #refresh
 {
@@ -77,7 +78,7 @@
 .Icons
 {
       display: inline;
-    margin-left: 400px;
+    margin-left: 200px;
 
 // display: contents;
 // margin-left: 100px;

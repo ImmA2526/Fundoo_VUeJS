@@ -7,7 +7,6 @@
                 <h3>Login</h3>
             </div></center>
             
-
         <md-card-content>
           <md-field :class="getValidationClass('email')">
             <label for="email">Email</label>

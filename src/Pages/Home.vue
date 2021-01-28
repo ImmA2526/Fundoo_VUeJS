@@ -70,6 +70,7 @@
       <md-app-content>
         <!-- <h2>Welcome To Fundoo Notes</h2> -->
         <Create></Create>
+        <Display></Display>        
       </md-app-content>
     </md-app>
   </div>
@@ -80,11 +81,13 @@
 // import Create from "../components/Create";
 import Create from "../components/Create"
 import Nav from "../components/NavBar"
+import Display from '../components/Display.vue';
 // import icons from "../components/icons"
 export default {
   components: {
     Create,
     Nav,
+    Display,
     // icons,
   },
   name: "PersistentMini",

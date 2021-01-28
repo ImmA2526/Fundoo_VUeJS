@@ -1,5 +1,6 @@
 <template>
-  <div class="main">
+<div>
+  <div class="keep-input">
     <!-- 1st Note  -->
     <div v-if="open == false" @click="toggle" class="createnote">
       <!-- <div> -->
@@ -51,11 +52,13 @@
             >
             <button class="btn btn-default btn-sm pull-right" v-on:click="addKeep">Done</button>
           </div>
+          <Display></Display>
         </md-card-actions>
       </md-card>
     </div>
   </div>
-  <!-- main <div></div> -->
+  
+</div><!-- main <div></div> -->
 </template>
     
 <style lang="scss" scoped>
@@ -181,7 +184,13 @@
 </style>
 
 <script>
+import Display from "../components/Display"
 export default {
+  
+   components: {
+    Display,
+    // icons,
+  },
   methods: {
     close(){
       this.open=false;
@@ -203,7 +212,7 @@ export default {
           this.inputKeep.text = "";
         }
       },
-      
+
     toggle() {
       this.open = !this.open;
     },
@@ -212,7 +221,15 @@ export default {
 
   data: () => ({
     open: false,
-   
+    name: 'keep-input',
+   return:{
+        mode: false,
+        inputKeep:{
+          title: "",
+          text: "",
+          list: []
+        }
+      }
   }),
 };
 </script>

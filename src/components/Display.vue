@@ -35,9 +35,9 @@
           <input type='text' v-model="note.description" >
         </div>
         <div class='ui two buttons'>
-          <!-- <button class='ui basic button' v-on:click="hideForm">
+          <button class='ui basic button' v-on:click="hideForm">
             Close X -->
-          <!-- </button> -->
+          </button>
         </div>
       </div>
     </div>

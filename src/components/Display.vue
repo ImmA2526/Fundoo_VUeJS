@@ -45,7 +45,9 @@
 </template>
 
 <script type="text/javascript">
+//   import create from "../Pages/Create"
   export default {
+      
     props: ['note'],
     data() {
       return {

@@ -50,7 +50,6 @@
           <div class="btn">
             <md-button type="button" class="close" v-on:click="close">Close</md-button
             >
-            <button class="btn btn-default btn-sm pull-right" v-on:click="addKeep">Done</button>
           </div>
           <Display></Display>
         </md-card-actions>
@@ -196,22 +195,6 @@ export default {
       this.open=false;
     },
 
-     addKeep: function(){
-        this.$store.commit('changeMode', 'input');
-        this.inputKeep.text = this.$refs.text.innerHTML;
-        if(this.inputKeep.title.length > 0 || this.inputKeep.text.length > 0){
-          this.$store.commit('addKeep', {
-            title: this.inputKeep.title,
-            text: this.inputKeep.text,
-            list: this.inputKeep.list,
-            labels: [],
-            color: "white"
-          });
-          this.$refs.text.innerHTML = "";
-          this.inputKeep.title = "";
-          this.inputKeep.text = "";
-        }
-      },
 
     toggle() {
       this.open = !this.open;

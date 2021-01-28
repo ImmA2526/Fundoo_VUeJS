@@ -2,11 +2,13 @@
   <!-- Main -->
   <div>
     <div class="text">
+
     <div class="fundoo">
-      <md-icon id="fun">keep</md-icon>
-    
+      <!-- <md-icon id="fun">emoji_objects</md-icon> -->
+<img src="../assets/keep.png" alt="keep">      <!-- <label class="fundoo">Fundoo</label>       -->
     </div>
-      <md-icon id="search">search</md-icon><input type="text" class="textbox" placeholder="Search" />      
+      <md-icon id="search">search</md-icon>
+      <input type="text" class="textbox" placeholder="Search" />      
       <div class="Icons">
       <md-icon id="refresh">refresh</md-icon>
       <md-icon id="listview">view_stream</md-icon>
@@ -65,4 +67,22 @@
 // margin-left: 100px;
 }
 
+.fundoo
+    {
+color:black;
+display: inline;
+    }
+    #fun
+    {
+      color:black;
+      height: 40px;
+    }
+
 </style>
+
+<script>
+
+// import icons from "../components/icons"
+export default {
+}
+</script>

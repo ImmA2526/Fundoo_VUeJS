@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form novalidate class="md-layout" @submit.prevent="validateUser">
+    <form novalidate class="md-layout" @submit.prevent="loginPost()" >
       <md-card class="md-layout-item md-size-50 md-small-size-100">
         <center> <div class="h2">
                 <h2 id="h2">Fundoo Notes</h2>
@@ -34,7 +34,7 @@
               <!-- <md-button  type="submit" class="md-primary" >Create account</md-button> -->
             </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Login</md-button>
+              <md-button  type="submit" class="md-dense md-raised md-primary" :disabled="sending" >Login</md-button>
             </div>
           </div>
         </md-card-actions>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+// import axios from 'axios'
+import userService from '../Services/userService'
 import { validationMixin } from "vuelidate";
 import { required, email, minLength } from "vuelidate/lib/validators";
 
@@ -58,7 +60,8 @@ export default {
       password: null
     },
     userSaved: false,
-    sending: false
+    sending: false,
+    loginUser:true
   }),
   validations: {
     form: {
@@ -85,19 +88,48 @@ export default {
       }
     },
 
+    
+
 // loginUser
-    post:function(){
-      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/login',{
-        email:this.form.email,
+
+
+
+
+loginPost(){
+
+  const userData = {
+      email:this.form.email,
         password:this.form.password,
         cartId:''
-
-      }).then(function(data){
-        localStorage.setItem('AccessToken','DSoQA8I4YhzwZLRLhxrp2Eo6Ps48dA839klUHiKYkoPbXDX5D2TkoTXhsl0uEBbm')
+    
+    }
+ userService
+.login(userData)
+.then(function(data){
+        localStorage.setItem('AccessToken',data.data.id)
+        
+        //  setTimeout(()=>  this.$router.push("/home"), 2000)
+          // })
         this.$router.push("/home")
         console.log(data);
-      }).catch();
+      }).catch((error)=> {
+        console.log(error);
+      })
     },
+
+
+    // post:function(){
+    //   this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/login',{
+    //     email:this.form.email,
+    //     password:this.form.password,
+    //     cartId:''
+
+    //   }).then(function(data){
+    //     localStorage.setItem('AccessToken','DSoQA8I4YhzwZLRLhxrp2Eo6Ps48dA839klUHiKYkoPbXDX5D2TkoTXhsl0uEBbm')
+    //     this.$router.push("/home")
+    //     console.log(data);
+    //   }).catch();
+    // },
 
     clearForm() {
       this.$v.$reset();

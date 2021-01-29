@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api/user/login"
+const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api"
 
 export default
     {
@@ -10,7 +10,7 @@ export default
                 data:data,
                 headers: {
                     'Content-Type': 'application/json',
-                    'accessToken': localStorage.getItem("access_Token")
+                    'Authorization': localStorage.getItem("AccessToken")
                 }
             })
         },
@@ -21,7 +21,7 @@ export default
                 url: `${baseUrl}${requestUrl}`,
                 headers: {
                     'Content-Type': 'application/json',
-                    'accessToken': localStorage.getItem("access_Token")
+                    'Authorization': localStorage.getItem("AccessToken")
                 }
             })
         }

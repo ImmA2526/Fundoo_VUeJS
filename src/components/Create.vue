@@ -65,16 +65,7 @@
           </div>
 
           <div class="btn">
-            <md-button
-              type="button"
-              class="close"
-              v-on:click="
-                close();
-                post();
-              "
-              method="POST"
-              >Close</md-button
-            >
+            <md-button type="button" class="close" v-on:click=" close(); CreateNote();" method="POST">Close</md-button>
           </div>
           <!-- <Display></Display> -->
         </md-card-actions>
@@ -216,17 +207,17 @@
 </style>
 
 <script>
+import noteService from "../Services/noteService"
 // import Display from "../components/Display";
 export default {
   components: {
     // Display,
     // icons,
   },
-   data: () => ({
+  data: () => ({
     open: false,
     title: null,
-     description: null,
-
+    description: null,
   }),
   methods: {
     close() {
@@ -237,28 +228,51 @@ export default {
       this.open = !this.open;
     },
     //Create Note Function
-post:function(){
-      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes',{
-        title:this.title,
-        description:this.description,
-        // cartId:''
 
-      },
-      
-  //      headers : {
-  //   Authorization: localStorage.getItem('AccessToken')
-  // }
-  ).then((data)=> {
-        // this.$router.push("/display")
-        console.log(data);
-      }).catch((error)=>{
-        console.log(error);
-      });
+    CreateNote() {
+      const userData = {
+        title: this.title,
+        description: this.description,
+      };
+      noteService
+        .createNote(userData)
+        .then(function (data) {
+          
+          localStorage.getItem("AccessToken");
 
+//           // Headers .........................
+//  headers: {
+//             Authorization: localStorage.getItem("AccessToken");
+//           }
+          //  setTimeout(()=>  this.$router.push("/home"), 2000)
+          // this.$router.push("/home");
 
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
-  },
 
- 
+    // post:function(){
+    //       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes',{
+    //         title:this.title,
+    //         description:this.description,
+    //         // cartId:''
+
+    //       },
+
+    //        headers : {
+    //     Authorization: localStorage.getItem('AccessToken')
+    //   }
+    //   ).then((data)=> {
+    //         // this.$router.push("/display")
+    //         console.log(data);
+    //       }).catch((error)=>{
+    //         console.log(error);
+    //       });
+
+    //     },
+  },
 };
 </script>

@@ -8,6 +8,7 @@ import Home from "../Pages/Home"
 import color from "../components/Color"
 import nav from "../components/NavBar"
 import display from "../components/Display"
+import Create from "../components/Create"
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,19 @@ const routes = [
     name: "home",
     component: Home
   },
+
+  {
+    path: "/create",
+    name: "create",
+    component: Create,
+
+      meta: {
+      Authorization: true
+    },
+
+  },
+
+
 
   {
     path: "/display",

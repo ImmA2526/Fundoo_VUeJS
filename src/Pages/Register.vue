@@ -40,7 +40,6 @@
             <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
           </md-field>
 
-
             <div class="md-layout md-gutter">
               <div class="md-layout-item md-small-size-100">
                 <md-field :class="getValidationClass('password')">

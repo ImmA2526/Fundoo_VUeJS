@@ -22,7 +22,7 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button type="submit" v-on:click="post" class="md-dense md-raised md-primary" :disabled="sending">Send Mail</md-button>
+          <md-button type="submit" v-on:click="emailPost()" class="md-dense md-raised md-primary" :disabled="sending">Send Mail</md-button>
         </md-card-actions>
         <div class="blank"></div>
       </md-card>
@@ -35,7 +35,7 @@
 
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
-
+import userService from "../Services/userService";
 export default {
   name: "FormValidation",
   mixins: [validationMixin],
@@ -45,6 +45,7 @@ export default {
     },
     userSaved: false,
     sending: false,
+     loginUser: true,
   }),
   validations: {
     form: {
@@ -64,17 +65,39 @@ export default {
         };
       }
     },
+
+
+// loginUser
+emailPost() {
+      const userData = {
+        email: this.form.email,
+      };
+      userService
+        .forgot(userData)
+        .then(function (data) {
+          // localStorage.getItem("AccessToken", data.data.id);
+
+          //  setTimeout(()=>  this.$router.push("/home"), 2000)
+          this.$router.push("/");
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+
 // email
 
-post:function(){
-      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/reset',{
-        email:this.form.email,
+// post:function(){
+//       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/reset',{
+//         email:this.form.email,
       
-      }).then(function(data){
-        this.$router.push("/login")
-        console.log(data);
-      });
-    },
+//       }).then(function(data){
+//         this.$router.push("/login")
+//         console.log(data);
+//       });
+//     },
 
 clearForm() {
       this.$v.$reset();

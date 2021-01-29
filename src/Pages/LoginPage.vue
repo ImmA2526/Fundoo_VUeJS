@@ -93,6 +93,7 @@ export default {
         cartId:''
 
       }).then(function(data){
+        localStorage.setItem('AccessToken','DSoQA8I4YhzwZLRLhxrp2Eo6Ps48dA839klUHiKYkoPbXDX5D2TkoTXhsl0uEBbm')
         this.$router.push("/home")
         console.log(data);
       }).catch();

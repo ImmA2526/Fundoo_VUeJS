@@ -6,13 +6,25 @@
       <!-- <div> -->
       <md-card id="card" md-with-hover>
         <div class="note">
-          <input type="text" id="titles" v-model="title"  placeholder="Take Note...." class="input1" />
+          <input
+            type="text"
+            id="titles"
+            v-model="title"
+            placeholder="Take Note...."
+            class="input1"
+          />
           <md-icon id="list_Notes">notes</md-icon>
-          <md-tooltip id="list_Notes1" md-direction="bottom">List All list_Notes</md-tooltip>
+          <md-tooltip id="list_Notes1" md-direction="bottom"
+            >List All list_Notes</md-tooltip
+          >
           <md-icon id="brush">brush</md-icon>
-          <md-tooltip id="brush1" md-direction="bottom">Note with Drawing</md-tooltip>
+          <md-tooltip id="brush1" md-direction="bottom"
+            >Note with Drawing</md-tooltip
+          >
           <md-icon id="Notes_Image">image</md-icon>
-          <md-tooltip id="Notes_Image1" md-direction="bottom">Note with Image</md-tooltip>
+          <md-tooltip id="Notes_Image1" md-direction="bottom"
+            >Note with Image</md-tooltip
+          >
         </div>
       </md-card>
     </div>
@@ -22,8 +34,20 @@
     <div v-else @on:click="toggle" class="createnote">
       <md-card id="card1" md-with-hover>
         <div class="note1">
-          <input type="text" class="text1" id="title" v-model="title"  placeholder="Take Note...." />
-          <input type="text" class="text" id="desc" v-model="description" placeholder="Decscription...."  />
+          <input
+            type="text"
+            class="text1"
+            id="title"
+            v-model="title"
+            placeholder="Take Note...."
+          />
+          <input
+            type="text"
+            class="text"
+            id="desc"
+            v-model="description"
+            placeholder="Decscription...."
+          />
         </div>
 
         <md-card-actions>
@@ -41,7 +65,15 @@
           </div>
 
           <div class="btn">
-            <md-button type="button" class="close" v-on:click="close(); post();"  method="POST">Close</md-button
+            <md-button
+              type="button"
+              class="close"
+              v-on:click="
+                close();
+                post();
+              "
+              method="POST"
+              >Close</md-button
             >
           </div>
           <!-- <Display></Display> -->
@@ -211,14 +243,19 @@ post:function(){
         description:this.description,
         // cartId:''
 
-      }).then((data)=> {
+      },
+      
+       headers : {
+    Authorization: localStorage.getItem('AccessToken')
+  }).then((data)=> {
         // this.$router.push("/display")
         console.log(data);
       }).catch((error)=>{
         console.log(error);
       });
-    },
 
+
+    },
   },
 
  

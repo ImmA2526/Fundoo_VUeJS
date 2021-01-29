@@ -1,6 +1,8 @@
 <template>
   <div>
-    <form novalidate class="md-layout" @submit.prevent="validateUser()" >
+    <form novalidate class="md-layout"  >
+    
+    <!-- <form novalidate class="md-layout" @submit.prevent="validateUser()" > -->
       <md-card class="md-layout-item md-size-50 md-small-size-50 md-with-hover">
         
         <center><div class="h2">
@@ -69,7 +71,8 @@
               <md-button type="submit" to="./" class="md-primary" :disabled="sending">Sign in instead</md-button>
             </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button  v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button>
+              <md-button  v-on:click="register()" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button>
+              <!-- <md-button  v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button> -->
             </div>
           </div>
         </md-card-actions>
@@ -82,6 +85,7 @@
 <script>
 import { validationMixin } from "vuelidate";
 import {required,email,minLength,maxLength} from "vuelidate/lib/validators";
+import userService from '../Services/userService';
 
 export default {
   name: "FormValidation",
@@ -102,11 +106,11 @@ export default {
     form: {
       firstName: {
         required,
-        minLength: minLength(3)
+        minLength: minLength(4)
       },
       lastName: {
         required,
-        minLength: minLength(3)
+        minLength: minLength(4)
       },
       email: {
         required,
@@ -134,20 +138,47 @@ export default {
       }
     },
 
-    post:function(){
-      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp',{
-        lastName:this.form.lastName,
-        firstName:this.form.firstName,
-        email:this.form.email,
-        password:this.form.password,
-        cartId:'',
-        service:'advance'
 
-      }).then(function(data){
-        this.$router.push("/login")
-        console.log(data);
-      });
+
+register() {
+      const userData = {
+        firstName:this.firstName,
+   lastName:this.lastName,
+   email:this.form.email,
+   password:this.form.password,
+   cartId:'',
+   service:'advance',
+      };
+      userService
+        .registration(userData)
+        .then(function (data) {
+          // localStorage.setItem("AccessToken", data.data.id);
+
+          //  setTimeout(()=>  this.$router.push("/home"), 2000)
+          this.$router.push("/home");
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
+
+
+
+    // post:function(){
+    //   this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp',{
+    //     lastName:this.form.lastName,
+    //     firstName:this.form.firstName,
+    //     email:this.form.email,
+    //     password:this.form.password,
+    //     cartId:'',
+    //     service:'advance'
+
+    //   }).then(function(data){
+    //     this.$router.push("/login")
+    //     console.log(data);
+    //   });
+    // },
 
     clearForm() {
       this.$v.$reset();

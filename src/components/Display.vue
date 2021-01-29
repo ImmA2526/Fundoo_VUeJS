@@ -34,9 +34,8 @@ export default {
   },
 
   //Get Note Function
-  post: function () {
-    this.$http
-      .post("http://fundoonotes.incubation.bridgelabz.com/api/note", {
+  get: function () {
+    this.$http.get("http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList", {
         title: this.title,
         description: this.description,
         cartId: "",

@@ -211,10 +211,12 @@ post:function(){
         description:this.description,
         // cartId:''
 
-      }).then(function(data){
-        this.$router.push("/display")
+      }).then((data)=> {
+        // this.$router.push("/display")
         console.log(data);
-      }).catch();
+      }).catch((error)=>{
+        console.log(error);
+      });
     },
 
   },

@@ -41,7 +41,7 @@
           </div>
 
           <div class="btn">
-            <md-button type="button" class="close" v-on:click="close(); post();" >Close</md-button
+            <md-button type="button" class="close" v-on:click="close(); post();"  method="POST">Close</md-button
             >
           </div>
           <!-- <Display></Display> -->
@@ -190,6 +190,12 @@ export default {
     // Display,
     // icons,
   },
+   data: () => ({
+    open: false,
+    title: null,
+     description: null,
+
+  }),
   methods: {
     close() {
       this.open = false;
@@ -200,7 +206,7 @@ export default {
     },
     //Create Note Function
 post:function(){
-      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/note',{
+      this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes',{
         title:this.title,
         description:this.description,
         // cartId:''
@@ -213,11 +219,6 @@ post:function(){
 
   },
 
-  data: () => ({
-    open: false,
-    title: null,
-     description: null,
-
-  }),
+ 
 };
 </script>

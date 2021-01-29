@@ -92,7 +92,7 @@ emailPost() {
 // post:function(){
 //       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/reset',{
 //         email:this.form.email,
-      
+  //    
 //       }).then(function(data){
 //         this.$router.push("/login")
 //         console.log(data);

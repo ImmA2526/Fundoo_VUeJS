@@ -245,9 +245,10 @@ post:function(){
 
       },
       
-       headers : {
-    Authorization: localStorage.getItem('AccessToken')
-  }).then((data)=> {
+  //      headers : {
+  //   Authorization: localStorage.getItem('AccessToken')
+  // }
+  ).then((data)=> {
         // this.$router.push("/display")
         console.log(data);
       }).catch((error)=>{

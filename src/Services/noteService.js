@@ -1,12 +1,13 @@
 import http from "./Http"
 // import axios from "axios"
+// Vue.use(axios)
 class notesService {
 
-    addNote = (userData, token) => {
-        console.log(userData.token)
-        return http.post(`/user/userSignUp`, userData, {
+    createNote (userData)  {
+        console.log(userData)
+        return http.post(`/notes/addNotes`, userData, {
             headers: {
-                Authorization: localStorage.getItem('token'),
+                Authorization: localStorage.getItem('AccessToken'),
             },
         });
     }

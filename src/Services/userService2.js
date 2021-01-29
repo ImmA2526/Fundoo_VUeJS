@@ -1,18 +1,18 @@
-import http from './Http'
+// import http from './Http'
 
-class UserRegister {
+// class UserRegister {
 
-    registration(Registeration) {
-        const URL = "http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp";
-        return http.post(`${URL}`, Registeration)
-    }
+//     registration(Registeration) {
+//         const URL = "http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp";
+//         return http.post(`${URL}`, Registeration)
+//     }
 
 
-    login(Login) {
-        const URL = "http://fundoonotes.incubation.bridgelabz.com/api/user/login";
+//     login(Login) {
+//         const URL = "http://fundoonotes.incubation.bridgelabz.com/api/user/login";
         
-        return http.post(`${URL}`, Login)
-    }
-}
+//         return http.post(`${URL}`, Login)
+//     }
+// }
 
-export default new UserRegister
+// export default new UserRegister

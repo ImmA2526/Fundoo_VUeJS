@@ -70,7 +70,7 @@
               <md-button type="submit" to="./" class="md-primary" :disabled="sending">Sign in instead</md-button>
             </div>
             <div class="md-layout-item md-small-size-100">
-              <md-button  v-on:click="register()" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button>
+              <md-button  v-on:click="registerPost()" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button>
               <!-- <md-button  v-on:click="post" type="submit" class="md-dense md-raised md-primary" :disabled="sending" >SignUp</md-button> -->
             </div>
           </div>
@@ -84,7 +84,7 @@
 <script>
 import { validationMixin } from "vuelidate";
 import {required,email,minLength,maxLength} from "vuelidate/lib/validators";
-import userService from '../Services/userService';
+import userService from '../Services/userService'
 
 export default {
   name: "FormValidation",
@@ -139,12 +139,13 @@ export default {
 
 
 
-register() {
+registerPost() {
       const userData = {
         firstName:this.firstName,
    lastName:this.lastName,
    email:this.form.email,
    password:this.form.password,
+   confirm:this.form.confirm,
    cartId:'',
    service:'advance',
       };

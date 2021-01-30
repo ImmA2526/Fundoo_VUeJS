@@ -255,11 +255,19 @@ export default {
         });
     },
 
-    created()
-    {
- this.display();
 
-    }
+// getAllNotes(){
+//   noteService.getNotes()
+//   .then((response)=>{
+//     console.log(response.data.result);
+//     this.
+//   })
+// }
+//     created()
+//     {
+//  this.display();
+
+//     }
    
     // post:function(){
     //       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes',{

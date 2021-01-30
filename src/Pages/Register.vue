@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form novalidate class="md-layout"  >
+    <form novalidate class="md-layout" @submit.prevent="validateUser">
     
     <!-- <form novalidate class="md-layout" @submit.prevent="validateUser()" > -->
       <md-card class="md-layout-item md-size-50 md-small-size-50 md-with-hover">
@@ -141,13 +141,13 @@ export default {
 
 registerPost() {
 const userData = {
-firstName: this.firstName,
-   lastName: this.lastName,
-   email: this.form.email,
-   password: this.form.password,
-   confirm: this.form.confirm,
-   cartId:'',
-   service:'advance'
+
+lastName:this.form.lastName,
+        firstName:this.form.firstName,
+        email:this.form.email,
+        password:this.form.password,
+        cartId:'',
+        service:'advance'
       };
       userService
         .registration(userData)

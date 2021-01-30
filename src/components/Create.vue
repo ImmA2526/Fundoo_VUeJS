@@ -209,9 +209,10 @@
 <script>
 import noteService from "../Services/noteService"
 // import Display from "../components/Display";
+import display from "../components/Display"
 export default {
   components: {
-    // Display,
+    display,
     // icons,
   },
   data: () => ({
@@ -254,6 +255,12 @@ export default {
         });
     },
 
+    created()
+    {
+ this.display();
+
+    }
+   
     // post:function(){
     //       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes',{
     //         title:this.title,

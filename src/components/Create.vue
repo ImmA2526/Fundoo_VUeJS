@@ -51,7 +51,9 @@
         </div>
 
         <md-card-actions>
-          <div class="icons1">
+          <div id="icons1" class="dropup control-item" data-toggle="tooltip" data-placement="bottom" title="Change colors">
+
+          <!-- <div id="icons1"> -->
             <md-icon id="reminder">notifications_active</md-icon>
             <md-tooltip id="reminder1" md-direction="bottom"
               >Reminde Me</md-tooltip
@@ -60,6 +62,15 @@
             <md-tooltip id="color1" md-direction="bottom"
               >Select Color</md-tooltip
             >
+
+        <i class="fa fa-gg-circle dropdown-toggle" id="colorMenu" data-toggle="dropdown"></i>
+        <ul  class="dropdown-menu" aria-labelledby="colorMenu" >
+          <li v-for="(c, i) in colors">
+            <div class="color" v-bind:style="{'background-color': c }"  v-on:click="setColor(c)"></div>
+          </li>
+        </ul>
+      <!-- </div> -->
+
             <md-icon id="archive">archive</md-icon>
             <md-tooltip id="archive1" md-direction="bottom">Archive</md-tooltip>
           </div>
@@ -159,7 +170,7 @@
   // margin-left: 0px;
 }
 
-.icons1 {
+#icons1 {
   margin-right: 280px;
 }
 #reminder1 {
@@ -209,21 +220,38 @@
 <script>
 import noteService from "../Services/noteService"
 // import Display from "../components/Display";
-import display from "../components/Display"
+// import display from "../components/Display"
 export default {
   components: {
-    display,
+    // display,
     // icons,
   },
+  computed:{
+      colors(){
+        return this.$store.getters.colors;
+      },
+    },
+
   data: () => ({
     open: false,
     title: null,
     description: null,
   }),
+
   methods: {
     close() {
       this.open = false;
     },
+ mounted: function(){
+      (function () {
+        ('[data-toggle="tooltip"]').tooltip();
+        console.log("asdasd");
+      })
+    },
+
+setColor: function(color){
+        this.data.color = color;
+      },
 
     toggle() {
       this.open = !this.open;

@@ -23,9 +23,11 @@ export const store = new Vuex.Store({
     keeps(state){
       return state.keeps;
     },
+    
     labels(state){
       return state.labels;
     },
+
     colors(state){
       return state.colors;
     }

@@ -140,14 +140,14 @@ export default {
 
 
 registerPost() {
-      const userData = {
-        firstName: this.firstName,
+const userData = {
+firstName: this.firstName,
    lastName: this.lastName,
    email: this.form.email,
    password: this.form.password,
    confirm: this.form.confirm,
    cartId:'',
-   service:'advance',
+   service:'advance'
       };
       userService
         .registration(userData)

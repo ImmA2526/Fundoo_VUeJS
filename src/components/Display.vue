@@ -1,11 +1,18 @@
 <template>
   <div>
-      <md-card>
-        <md-card-content>
-
-          <!-- this is the card body -->
-        </md-card-content>
-      </md-card>
+    <md-card>
+      <md-card-content>
+       <div class="display-note" >
+        {props.item.filter(item => item.isDeleted === false).map((item) => (
+        <div class="display">
+          <div class="title">{item.title}</div>
+          <div class="desc">{item.description}</div>
+        </div>
+        <!-- this is the card body -->
+       </div>
+        ))}
+      </md-card-content>
+    </md-card>
     <!-- </md-ripple> -->
   </div>
 </template>
@@ -22,6 +29,7 @@
 </style>
 
 <script>
+import noteService from "../Services/noteService"
 export default {
   components: {
     // Display,
@@ -34,23 +42,55 @@ export default {
   },
 
   //Get Note Function
-  get: function () {
-    this.$http.get("http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList", {
+ display() {
+      const userData = {
         title: this.title,
         description: this.description,
-        cartId: "",
-      })
-      .then(function (data) {
-        this.$router.push("/display");
-        console.log(data);
-      })
-      .catch();
-  },
+      };
+      noteService
+        .getNotes(userData)
+        .then(function (data) {
+          
+          localStorage.getItem("AccessToken");
 
-  data: () => ({
-    title: null,
-    description: null,
-  }),
+//           // Headers .........................
+//  headers: {
+//             Authorization: localStorage.getItem("AccessToken");
+//           }
+          //  setTimeout(()=>  this.$router.push("/home"), 2000)
+          // this.$router.push("/home");
+
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+
+
+
+  // get: function () {
+  //   this.$http
+  //     .get(
+  //       "http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList",
+  //       {
+  //         title: this.title,
+  //         description: this.description,
+  //         cartId: "",
+  //       }
+  //     )
+  //     .then(function (data) {
+  //       this.$router.push("/display");
+  //       console.log(data);
+  //     })
+  //     .catch();
+  // },
+
+  // data: () => ({
+  //   title: null,
+  //   description: null,
+  // }),
 };
 </script>
 

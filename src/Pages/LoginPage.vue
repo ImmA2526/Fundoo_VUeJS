@@ -51,6 +51,8 @@
 import userService from "../Services/userService";
 import { validationMixin } from "vuelidate";
 import { required, email, minLength } from "vuelidate/lib/validators";
+import { setTimeout } from 'timers';
+
 
 export default {
   name: "FormValidation",
@@ -99,14 +101,23 @@ export default {
         .then(function (data) {
           localStorage.setItem("AccessToken", data.data.id);
 
-          //  setTimeout(()=>  this.$router.push("/home"), 2000)
-          this.$router.push("/home");
+           setTimeout(()=>  this.redirect(), 2000)
+          // setTimeout(() => this.redirect(), 1000)
+          //   }, 1000)
+          
+          // this.$router.push("/home");
+          // this.$router.replace("/home");
           console.log(data);
         })
         .catch((error) => {
           console.log(error);
         });
     },
+
+
+     redirect() {
+            this.$router.push("/home")
+        },
 
     // post:function(){
     //   this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/login',{

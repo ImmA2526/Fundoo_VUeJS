@@ -1,7 +1,7 @@
 import http from "./Http"
 // import axios from "axios"
 // Vue.use(axios)
-class notesService {
+class noteService {
 
     createNote (userData)  {
         console.log(userData)
@@ -11,9 +11,17 @@ class notesService {
             },
         });
     }
+    
+
+    getNotes(userData) {
+        console.log(userData)
+        return http.post(`/notes/getNotesList`, userData, {
+            headers: {
+                Authorization: localStorage.getItem('AccessToken'),
+            },
+        });
+    }
 
 }
 
-
-
-export default new notesService
+export default new noteService

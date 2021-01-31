@@ -247,13 +247,7 @@ export default {
     },
 
     //Setiing color 
- mounted: function(){
-      (function () {
-        ('[data-toggle="tooltip"]').tooltip();
-        console.log("asdasd");
-      })
-    },
-
+ 
 setColor: function(color){
         this.data.color = color;
       },

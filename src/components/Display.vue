@@ -49,6 +49,7 @@ export default {
     
     const userData = {
           title: this.title,
+          note: null,
           description: this.description,
         };
     noteService

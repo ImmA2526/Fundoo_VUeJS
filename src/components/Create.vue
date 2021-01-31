@@ -19,7 +19,7 @@
           <md-icon id="brush">brush</md-icon>
           <md-tooltip id="brush1" md-direction="bottom"
             >Note with Drawing</md-tooltip
-          <!-- > -->
+          >
           <md-icon id="Notes_Image">image</md-icon>
           <md-tooltip id="Notes_Image1" md-direction="bottom"
             >Note with Image</md-tooltip

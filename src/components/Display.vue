@@ -2,7 +2,7 @@
   <div>
     <md-card>
       <md-card-content>
-          <div class="display">
+          <div class="display" v.for="note in notes" :key="note._id">
             <div class="header">
               {{ note.title }}
             </div>
@@ -46,8 +46,13 @@ export default {
 
   ///Get all notes
   getAllNotes: function () {
+    
+    const userData = {
+          title: this.title,
+          description: this.description,
+        };
     noteService
-      .getNotes()
+      .getNotes(userData)
       .then((response) => {
         console.log(response.data.result);
         this.notes = response.data.result;

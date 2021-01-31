@@ -6,8 +6,7 @@
       <!-- <div> -->
       <md-card id="card" md-with-hover>
         <div class="note">
-          <input
-            type="text"
+          <input type="text"
             id="titles"
             v-model="title"
             placeholder="Take Note...."
@@ -20,7 +19,7 @@
           <md-icon id="brush">brush</md-icon>
           <md-tooltip id="brush1" md-direction="bottom"
             >Note with Drawing</md-tooltip
-          >
+          <!-- > -->
           <md-icon id="Notes_Image">image</md-icon>
           <md-tooltip id="Notes_Image1" md-direction="bottom"
             >Note with Image</md-tooltip
@@ -265,30 +264,24 @@ setColor: function(color){
     //Create Note Function
 
     CreateNote() {
-      const userData = {
-        title: this.title,
-        description: this.description,
-      };
-      noteService
-        .createNote(userData)
-        .then(function (data) {
-          
-          localStorage.getItem("AccessToken");
+    const userData = {
+      title: this.title,
+      description: this.description,
+    };
+    noteService
+      .createNote(userData)
+      .then(function (data) {
+        
+        localStorage.getItem("AccessToken");
 
-//           // Headers .........................
-//  headers: {
-//             Authorization: localStorage.getItem("AccessToken");
-//           }
-          //  setTimeout(()=>  this.$router.push("/home"), 2000)
-          // this.$router.push("/home");
-
-          console.log(data);
-          
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+        //  setTimeout(()=>  this.$router.push("/home"), 2000)
+        console.log(data);
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 
 getAllNotes: function () {
     noteService

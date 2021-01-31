@@ -2,15 +2,16 @@
   <div>
     <md-card>
       <md-card-content>
-       <div class="display-note" >
-        {props.item.filter(item => item.isDeleted === false).map((item) => (
-        <div class="display">
-          <div class="title">{item.title}</div>
-          <div class="desc">{item.description}</div>
-        </div>
-        <!-- this is the card body -->
-       </div>
-        ))}
+          <div class="display">
+            <div class="header">
+              {{ note.title }}
+            </div>
+            <div class="meta italic">
+              {{ note.description }}
+            </div>
+          </div>
+          <!-- this is the card body -->
+    
       </md-card-content>
     </md-card>
     <!-- </md-ripple> -->
@@ -29,7 +30,7 @@
 </style>
 
 <script>
-import noteService from "../Services/noteService"
+import noteService from "../Services/noteService";
 export default {
   components: {
     // Display,
@@ -42,33 +43,51 @@ export default {
   },
 
   //Get Note Function
- display() {
-      const userData = {
-        title: this.title,
-        description: this.description,
-      };
-      noteService
-        .getNotes(userData)
-        .then(function (data) {
-          
-          localStorage.getItem("AccessToken");
 
-//           // Headers .........................
-//  headers: {
-//             Authorization: localStorage.getItem("AccessToken");
-//           }
-          //  setTimeout(()=>  this.$router.push("/home"), 2000)
-          // this.$router.push("/home");
+  ///Get all notes
+  getAllNotes: function () {
+    noteService
+      .getNotes()
+      .then((response) => {
+        console.log(response.data.result);
+        this.notes = response.data.result;
+        // this.notes.map(function(title,description){
 
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+        // })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 
+  crated() {
+    this.getAllNotes();
+  },
 
+  //  display() {
+  //       const userData = {
+  //         title: this.title,
+  //         description: this.description,
+  //       };
+  //       noteService
+  //         .getNotes(userData)
+  //         .then(function (data) {
 
+  //           localStorage.getItem("AccessToken");
+
+  //           // Headers .........................
+  //  headers: {
+  //             Authorization: localStorage.getItem("AccessToken");
+  //           }
+  //  setTimeout(()=>  this.$router.push("/home"), 2000)
+  // this.$router.push("/home");
+
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // },
 
   // get: function () {
   //   this.$http

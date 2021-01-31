@@ -63,12 +63,12 @@
               >Select Color</md-tooltip
             >
 
-        <i class="fa fa-gg-circle dropdown-toggle" id="colorMenu" data-toggle="dropdown"></i>
+        <!-- <i class="fa fa-gg-circle dropdown-toggle" id="colorMenu" data-toggle="dropdown"></i>
         <ul  class="dropdown-menu" aria-labelledby="colorMenu" >
           <li v-for="(c, i) in colors">
             <div class="color" v-bind:style="{'background-color': c }"  v-on:click="setColor(c)"></div>
           </li>
-        </ul>
+        </ul> -->
       <!-- </div> -->
 
             <md-icon id="archive">archive</md-icon>
@@ -78,6 +78,7 @@
           <div class="btn">
             <md-button type="button" class="close" v-on:click=" close(); CreateNote();" method="POST">Close</md-button>
           </div>
+       <Display v-bind:getallNotes="getAllNotes"/>
           <!-- <Display></Display> -->
         </md-card-actions>
       </md-card>
@@ -219,11 +220,13 @@
 
 <script>
 import noteService from "../Services/noteService"
-// import Display from "../components/Display";
+import Display from "../components/Display";
 // import display from "../components/Display"
+// import Display from './Display.vue';
 export default {
   components: {
-    // display,
+    // display
+    Display,
     // icons,
   },
   computed:{
@@ -236,12 +239,15 @@ export default {
     open: false,
     title: null,
     description: null,
+    notes:[],
   }),
 
   methods: {
     close() {
       this.open = false;
     },
+
+    //Setiing color 
  mounted: function(){
       (function () {
         ('[data-toggle="tooltip"]').tooltip();
@@ -277,11 +283,41 @@ setColor: function(color){
           // this.$router.push("/home");
 
           console.log(data);
+          
         })
         .catch((error) => {
           console.log(error);
         });
     },
+
+getAllNotes: function () {
+    noteService
+      .getNotes()
+      .then((response) => {
+        console.log(response.data.result);
+        this.notes = response.data.result;
+        // this.notes.map(function(title,description){
+
+        // })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+
+  crated() {
+    this.getAllNotes();
+  },
+
+  clearForm() {
+      this.$v.$reset();
+      this.title = null;
+      this.description = null;
+    this.clearForm();
+    },
+
+    
+
 
 
 // getAllNotes(){

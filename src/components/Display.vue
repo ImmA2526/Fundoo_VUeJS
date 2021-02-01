@@ -2,14 +2,14 @@
   <div>
     <md-card>
       <md-card-content>
-          <div class="display" v-for="note in notes" :key="note._id">
+          <div class="display" v-for="note in notes " :key="note._id">
             <div class="header">
               {{ note.title }}
             </div>
             <div class="meta italic">
               {{ note.description }}
             </div>
-
+            
           </div>
           <!-- this is the card body -->
     
@@ -36,16 +36,19 @@ export default {
   components: {
     // Display,
     // icons,
+
   },
+
+  data: () => ({
+    notes:[],
+  }),
   methods: {
     close() {
       this.open = false;
     },
 
 ///Get all notes
-  getAllNotes: function () {
-    
-    
+  x: function () {
     noteService
       .getNotes()
       .then((response) => {
@@ -72,7 +75,7 @@ created() {
 
 
   mounted() {
-    this.getAllNotes();
+    this.x();
   },
 
   //  display() {
@@ -117,10 +120,7 @@ created() {
   //     .catch();
   // },
 
-  // data: () => ({
-  //   title: null,
-  //   description: null,
-  // }),
+  // 
 };
 </script>
 

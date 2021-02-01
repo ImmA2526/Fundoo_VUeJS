@@ -13,9 +13,9 @@ class noteService {
     }
     
 
-    getNotes(userData) {
-        console.log(userData)
-        return http.get(`/notes/getNotesList`, userData, {
+    getNotes() {
+        console.log()
+        return http.get(`/notes/getNotesList`, {
             headers: {
                 Authorization: localStorage.getItem('AccessToken'),
             },

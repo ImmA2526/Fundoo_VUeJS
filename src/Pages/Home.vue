@@ -81,7 +81,7 @@
 // import Create from "../components/Create";
 import Create from "../components/Create"
 import Nav from "../components/NavBar"
-import Display from '../components/Display.vue';
+import Display from '../components/Display.vue'
 // import icons from "../components/icons"
 export default {
   components: {

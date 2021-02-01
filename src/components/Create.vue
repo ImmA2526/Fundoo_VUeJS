@@ -78,12 +78,14 @@
             <md-button type="button" class="close" v-on:click=" close(); CreateNote();" method="POST">Close</md-button>
           </div>
        <!-- <Display v-bind:getallNotes="getAllNotes"/> -->
-          <Display></Display>
+  <!-- <Display></Display>         -->
         </md-card-actions>
       </md-card>
     </div>
     <!-- </div> -->
+  
   </div>
+  
   <!-- main <div></div> -->
 </template>
     
@@ -219,13 +221,13 @@
 
 <script>
 import noteService from "../Services/noteService"
-import Display from "../components/Display";
+// import Display from "../components/Display";
 // import display from "../components/Display"
 // import Display from './Display.vue';
 export default {
   components: {
     // display
-    Display,
+    // Display,
     // icons,
   },
   computed:{
@@ -238,7 +240,7 @@ export default {
     open: false,
     title: null,
     description: null,
-    notes:[],
+    // notes:[],
   }),
 
   methods: {

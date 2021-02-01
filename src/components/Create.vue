@@ -77,8 +77,8 @@
           <div class="btn">
             <md-button type="button" class="close" v-on:click=" close(); CreateNote();" method="POST">Close</md-button>
           </div>
-       <Display v-bind:getallNotes="getAllNotes"/>
-          <!-- <Display></Display> -->
+       <!-- <Display v-bind:getallNotes="getAllNotes"/> -->
+          <Display></Display>
         </md-card-actions>
       </md-card>
     </div>
@@ -277,24 +277,26 @@ setColor: function(color){
       });
   },
 
-getAllNotes: function () {
-    noteService
-      .getNotes()
-      .then((response) => {
-        console.log(response.data.result);
-        this.notes = response.data.result;
-        // this.notes.map(function(title,description){
+// getAllNotes: function () {
+//    console.log("Line number 281");
+//     noteService
+//       .getNotes()
+      
+//       .then((response) => {
+//         console.log(response.data.result);
+//         this.notes = response.data.result;
+//         // this.notes.map(function(title,description){
 
-        // })
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
+//         // })
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   },
 
-  crated() {
-    this.getAllNotes();
-  },
+//   created() {
+//     this.getAllNotes();
+//   },
 
        
 // post:function(){

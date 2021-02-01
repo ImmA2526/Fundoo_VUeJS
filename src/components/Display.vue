@@ -2,13 +2,14 @@
   <div>
     <md-card>
       <md-card-content>
-          <div class="display" v.for="note in notes" :key="note._id">
+          <div class="display" v-for="note in notes" :key="note._id">
             <div class="header">
               {{ note.title }}
             </div>
             <div class="meta italic">
               {{ note.description }}
             </div>
+
           </div>
           <!-- this is the card body -->
     
@@ -40,23 +41,16 @@ export default {
     close() {
       this.open = false;
     },
-  },
 
-  //Get Note Function
-
-  ///Get all notes
+///Get all notes
   getAllNotes: function () {
     
-    const userData = {
-          title: this.title,
-          note: null,
-          description: this.description,
-        };
+    
     noteService
-      .getNotes(userData)
+      .getNotes()
       .then((response) => {
-        console.log(response.data.result);
-        this.notes = response.data.result;
+        console.log(response.data.data.data);
+        this.notes = response.data.data.data;
         // this.notes.map(function(title,description){
 
         // })
@@ -66,7 +60,18 @@ export default {
       });
   },
 
-  crated() {
+
+  },
+
+  //Get Note Function
+
+  
+created() {
+    this.x();
+  },
+
+
+  mounted() {
     this.getAllNotes();
   },
 

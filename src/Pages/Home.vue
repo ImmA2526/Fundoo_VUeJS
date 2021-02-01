@@ -1,80 +1,145 @@
 <template>
   <div class="page-container">
-    <Nav></Nav>
-    <md-app id="tb">
-     
-            <!-- Toolbaar>> File Menue -->
-      <md-app-toolbar id="tb" class="md-primary" md-elevation="0">
-      
-        <md-button
-          class="md-icon-button"
-          @click="toggleMenu"
-          v-if="!menuVisible"
-        >
-        
-          <md-icon id="tb1">keyboard_arrow_right</md-icon>
+  <Nav></Nav>
+    <md-app md-mode="reveal">
+      <md-app-toolbar class="md-primary">
+        <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
+          <md-icon>menu</md-icon>
         </md-button>
+        <span class="md-title">Keep</span>
 
-        <!-- Navbar  -->
-        
-        <!-- <icons></icons> -->
-        <!-- <div class="tabs">  
-          <md-tabs>
-            <md-tab class="home" md-label="Home"></md-tab>
-
-            <div id="log">
-              <md-tab
-                className="{classes.button}"
-                to="./"
-                md-alignment="right"
-                md-label="Logout"
-              ></md-tab>
-            </div>
-          </md-tabs>
-        </div> -->
+<md-icon id="search">search</md-icon>
+      <input type="text" class="textbox" placeholder="Search" />
+      <div class="Icons">
+        <md-icon id="refresh">refresh</md-icon>
+        <md-icon id="listview">view_stream</md-icon>
+        <md-icon id="setting">settings</md-icon>
+        <md-icon id="apps1" class="material-icons">apps</md-icon>
+      </div>
       </md-app-toolbar>
 
-      <md-app-drawer id="tb" :md-active.sync="menuVisible" md-persistent="mini">
-        <md-toolbar id="tb" class="md-transparent" md-elevation="0">
-          <!-- <span id="mn">Fundoo Notes</span> -->
+      <md-app-drawer :md-active.sync="menuVisible">
+        <!-- <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar> -->
+<div class="md-overlay"></div>
 
-          <div class="md-toolbar-section-end">
-            <md-button class="md-icon-button md-dense" @click="toggleMenu">
-              <md-icon id="mn">keyboard_arrow_left</md-icon>
-            </md-button>
-          </div>
-        </md-toolbar>
-
-        <md-list id="tb">
+        <md-list>
           <md-list-item>
-            <md-icon id="notes">notes</md-icon>
+           <md-icon id="notes">notes</md-icon>
             <span id="notes" class="md-list-item-text">Notes</span>
           </md-list-item>
 
           <md-list-item>
-            <md-icon id="reminder">notifications</md-icon>
+           <md-icon id="reminder">notifications</md-icon>
             <span id="reminder" class="md-list-item-text">Reminders</span>
-          </md-list-item>
-          <md-list-item>
-            <md-icon id="archive">archive</md-icon>
-            <span id="archive" class="md-list-item-text">Archive</span>
           </md-list-item>
 
           <md-list-item>
-            <md-icon id="delete">delete</md-icon>
+<md-icon id="archive">archive</md-icon>
+            <span id="archive" class="md-list-item-text">Archive</span>          </md-list-item>
+
+          <md-list-item>
+          <md-icon id="delete">delete</md-icon>
             <span id="delete" class="md-list-item-text">Trash</span>
-          </md-list-item>
+            </md-list-item>
         </md-list>
       </md-app-drawer>
 
       <md-app-content>
-        <!-- <h2>Welcome To Fundoo Notes</h2> -->
-        <Create></Create>
-        <Display></Display>        
+
+      <Create></Create>      
+        <Display></Display>  
+        
       </md-app-content>
     </md-app>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .md-app {
+  min-height: 350px;
+  // border: 1px solid rgba(#000, .12);
+}
+  .md-drawer {
+  width: 180px;
+ 
+  height: 710px;
+    margin-top: 64px;
+
+}
+
+.md-content {
+  height: 650px;
+  color: black;
+}
+
+
+  .md-overlay {
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    // z-index: 5;
+    // overflow: hidden;
+    /* background: rgba(0,0,0,.6); */
+    // transition: .35s cubic-bezier(.4,0,.2,1);
+    transition-property: opacity;
+    will-change: opacity;
+}
+
+// Navabar Style 
+
+.textbox {
+  width: 520px;
+  border-radius: 12px;
+  height: 36px;
+  margin-top: 4px;
+}
+
+.text {
+  margin-left: 40px;
+}
+#search {
+  margin-left: 24px;
+  color: black;
+}
+#listview {
+  margin-left: 24px;
+}
+#setting {
+  margin-left: 24px;
+  color: black;
+}
+#apps1 {
+  margin-left: 110px;
+  color: black;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.title-name {
+  font-weight: bold;
+  margin-right: 200px;
+}
+#refresh {
+  margin-left: 24px;
+  color: black;
+}
+.Icons {
+  display: inline;
+  margin-left: 200px;
+
+  // display: contents;
+  // margin-left: 100px;
+}
+
+
+
+</style>
 
 <script>
 // Importing One Component To Another
@@ -90,86 +155,10 @@ export default {
     Display,
     // icons,
   },
-  name: "PersistentMini",
+  name: 'Reveal',
   data: () => ({
-    menuVisible: false,
+    menuVisible: false
   }),
 
-  methods: {
-    toggleMenu() {
-      this.menuVisible = !this.menuVisible;
-    },
-  },
 };
 </script>
-
-<style lang="scss" scoped>
-.md-app {
-  min-height: 350px;
-  // border: 1px solid rgba(#000, .12);
-}
-
-.home {
-  color: black;
-}
-
-.tabs {
-  color: black;
-}
-#tb1 {
-  color: black;
-}
-// Demo purposes only
-.md-drawer {
-  width: 230px;
-  // max-width: calc(100vw - 125px);
-  height: 700px;
-}
-
-.md-content {
-  height: 650px;
-  color: black;
-}
-
-#log {
-  color: black;
-}
-
-#home {
-  color: black;
-}
-
-// navigation
-#tb {
-  background-color: white;
-}
-
-#delete {
-  color: black;
-}
-
-#archive {
-  color: black;
-}
-
-#reminder {
-  color: black;
-}
-
-#notes {
-  color: black;
-}
-
-#home {
-  color: black;
-}
-
-#log {
-  position: absolute;
-  color: black;
-}
-
-#mn {
-  color: black;
-}
-</style>

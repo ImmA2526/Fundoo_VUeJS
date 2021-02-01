@@ -1,20 +1,23 @@
 <template>
   <div>
-    <md-card>
-      <md-card-content>
+    <!-- <md-card> -->
+      <!-- <md-card-content> -->
           <div class="display" v-for="note in notes " :key="note._id">
-            <div class="header">
-              {{ note.title }}
+<div class="addNote">
+<div class="notes1">
+            <div class="note pds">
+              <b>{{ note.title }}</b>
             </div>
-            <div class="meta italic">
+            <div class="note pds">
               {{ note.description }}
             </div>
-            
+</div>
+          </div>
           </div>
           <!-- this is the card body -->
     
-      </md-card-content>
-    </md-card>
+      <!-- </md-card-content> -->
+    <!-- </md-card> -->
     <!-- </md-ripple> -->
   </div>
 </template>
@@ -28,6 +31,66 @@
   vertical-align: top;
   border-radius: 12px;
 }
+
+
+
+.display {
+    display: flex;
+    width: 240px;
+    overflow-wrap: break-word;
+    content: "";
+    display: table;
+    clear: both;
+    margin: 0 -5px;
+    display: inline-flex;
+    white-space: normal;
+    margin-left: 1%;
+    margin-top: 3%;
+    /* margin-right: 5%; */
+    
+}
+.display-note{
+   
+    margin-bottom: 100%;
+    /* width: 25%; */
+  padding: 0 10px;
+  display: inline-flex;
+  width: 220px;
+  margin-left: 10%;
+  margin-right: 20%;
+}
+.addNote {
+    width: 240px;
+    height:max-content;
+    margin: 5px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+        box-sizing: content-box;
+}
+
+.notes1 {
+    height:fit-content;
+    overflow:content;
+}
+
+.pds {
+    letter-spacing: .00625em;
+    padding: 5px;
+    height:fit-content;
+    /* padding: 16px; */
+}
+
+
+// @media screen and (max-width: 600px) {
+//     .display {
+//         width:90%;
+//     }
+
+//     .addNote {
+//         width: 90%;
+//     }
+// }
+
 </style>
 
 <script>

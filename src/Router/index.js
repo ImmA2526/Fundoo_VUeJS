@@ -8,7 +8,7 @@ import Home from "../Pages/Home"
 import color from "../components/Color"
 import nav from "../components/NavBar"
 import display from "../components/Display"
-// import Create from "../components/Create"
+import Note from "../components/NoteComponent"
 
 Vue.use(VueRouter);
 
@@ -19,16 +19,11 @@ const routes = [
     component: Home
   },
 
-  // {
-  //   path: "/create",
-  //   name: "create",
-  //   component: Create,
-
-  //     meta: {
-  //     Authorization: true
-  //   },
-
-  // },
+  {
+    path: "/note",
+    name: "note",
+    component: Note,
+  },
 
 
 

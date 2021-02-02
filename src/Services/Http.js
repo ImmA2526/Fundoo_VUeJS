@@ -3,6 +3,8 @@ const baseUrl = "http://fundoonotes.incubation.bridgelabz.com/api"
 
 export default
     {
+// Add Data 
+
         post(requestUrl,data){
             return axios({
                 method: 'post',
@@ -14,6 +16,7 @@ export default
                 }
             })
         },
+// Get Data 
 
         get(requestUrl){
             return axios({
@@ -22,6 +25,30 @@ export default
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': localStorage.getItem("AccessToken")
+                }
+            })
+        },
+// Edit Method 
+
+        PUT(requestUrl) {
+            return axios({
+                method: 'put',
+                url: `${baseUrl}${requestUrl}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem("AccessToken")
+                }
+            })
+        },
+// Delete Method 
+
+        DELETE(requestUrl){
+            return axios({
+                method:'DELETE',
+                url: `${baseUrl}${requestUrl}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem("AccessToken") 
                 }
             })
         }

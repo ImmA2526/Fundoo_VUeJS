@@ -2,8 +2,8 @@ import http from "./Http"
 // import axios from "axios"
 // Vue.use(axios)
 class noteService {
-
-    createNote (userData)  {
+// Add Data  Method 
+    createNote(userData) {
         console.log(userData)
         return http.post(`/notes/addNotes`, userData, {
             headers: {
@@ -11,10 +11,9 @@ class noteService {
             },
         });
     }
-    
-
+// Get Data  Method 
     getNotes() {
-        console.log()
+        console.log("The Details are :")
         return http.get(`/notes/getNotesList`, {
             headers: {
                 Authorization: localStorage.getItem('AccessToken'),
@@ -22,6 +21,23 @@ class noteService {
         });
     }
 
+// Edit Method 
+    editNotes() {
+    return http.put(`/notes/updateNotes`, {
+            headers: {
+                Authorization: localStorage.getItem('AccessToken'),
+            },
+        });
+    }
+
+// Delete Method 
+    deleteNotes() {
+        return http.delete(`/notes/trashNotes` , {
+            headers: {
+                Authorization: localStorage.getItem('AccessToken'),
+            },
+        });
+    }
 }
 
 export default new noteService

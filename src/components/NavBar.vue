@@ -4,11 +4,7 @@
 <!-- <Home></Home> -->
     <div class="text">
       <md-app md-mode="reveal">
-        <!-- <div class="md-overlay"></div> -->
         <md-app-toolbar class="color" position="fixed">
-
-
-
           <md-button class="md-icon-button" @click="toggleMenu"   >
             <md-icon>menu</md-icon>
           </md-button>
@@ -27,8 +23,6 @@
           </div>
         </md-app-toolbar>
       </md-app>
-
-        <!-- <md-icon id="apps1" class="material-icons">apps</md-icon> -->
       </div>
     </div>
   <!-- </div> -->
@@ -38,7 +32,6 @@
 <style lang="scss" scoped>
 
 // Navabar Style
-
 .color {
   background-color: #fff;
   height: 20px;
@@ -98,23 +91,17 @@
   color: black;
 }
 
-
 </style>
 
 <script>
 // Importing One Component To Another
 // import Create from "../components/Create";
-// import Create from "../components/Create";
 // import Home from "../components/Home";
-// import Display from "../components/Display.vue";
-// import icons from "../components/icons"
 export default {
   components: {
     // Create,
-    // // Nav,
     // Home,
     // Display,
-    // // icons,
   },
   name: "Reveal",
   data: () => ({

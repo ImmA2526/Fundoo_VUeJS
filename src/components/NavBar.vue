@@ -5,7 +5,7 @@
     <div class="text">
       <md-app md-mode="reveal">
         <md-app-toolbar class="color" position="fixed">
-          <md-button class="md-icon-button" @click="toggleMenu"   >
+          <md-button class="md-icon-button">
             <md-icon>menu</md-icon>
           </md-button>
           <span class="md-title">Keep</span>

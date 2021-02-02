@@ -8,7 +8,7 @@
     {{ Create }}
     {{ Display }}
 
-      <!-- <Display v-bind:getAllnotes="getAllnotes"></Display> -->
+      <Display v-bind:getAllnotes="getAllnotes"></Display>
     </div>
   </div>
 </template>

@@ -121,7 +121,6 @@ export default {
       },
       confirm: {
         required
-
         // target:password
       }
     }
@@ -136,8 +135,6 @@ export default {
         };
       }
     },
-
-
 
 registerPost() {
 const userData = {
@@ -163,23 +160,6 @@ lastName:this.form.lastName,
         });
     },
 
-
-
-    // post:function(){
-    //   this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp',{
-    //     lastName:this.form.lastName,
-    //     firstName:this.form.firstName,
-    //     email:this.form.email,
-    //     password:this.form.password,
-    //     cartId:'',
-    //     service:'advance'
-
-    //   }).then(function(data){
-    //     this.$router.push("/login")
-    //     console.log(data);
-    //   });
-    // },
-
     clearForm() {
       this.$v.$reset();
       this.form.firstName = null;
@@ -190,7 +170,6 @@ lastName:this.form.lastName,
     },
     saveUser() {
       this.sending = true;
-
       // Instead of this timeout, here you can call your API
       window.setTimeout(() => {
         this.lastUser = `${this.form.firstName} ${this.form.lastName}`;

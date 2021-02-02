@@ -102,9 +102,6 @@ export default {
           localStorage.setItem("AccessToken", data.data.id);
 
            setTimeout(()=>  this.redirect(), 2000)
-          // setTimeout(() => this.redirect(), 1000)
-          //   }, 1000)
-          
           // this.$router.push("/home");
           // this.$router.replace("/home");
           console.log(data);
@@ -118,19 +115,6 @@ export default {
      redirect() {
             this.$router.push("/home")
         },
-
-    // post:function(){
-    //   this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/login',{
-    //     email:this.form.email,
-    //     password:this.form.password,
-    //     cartId:''
-
-    //   }).then(function(data){
-    //     localStorage.setItem('AccessToken','DSoQA8I4YhzwZLRLhxrp2Eo6Ps48dA839klUHiKYkoPbXDX5D2TkoTXhsl0uEBbm')
-    //     this.$router.push("/home")
-    //     console.log(data);
-    //   }).catch();
-    // },
 
     clearForm() {
       this.$v.$reset();

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <div class="keep-input"> -->
     <!-- 1st Note  -->
     <div v-if="open == false" @click="toggle" class="createnote">
       <!-- <div> -->
@@ -49,9 +50,9 @@
         </div>
 
         <md-card-actions>
-          <!-- <div id="icons1" class="dropup control-item" data-toggle="tooltip" data-placement="bottom" title="Change colors"> -->
+          <div id="icons1" class="dropup control-item" data-toggle="tooltip" data-placement="bottom" title="Change colors">
 
-          <div id="icons1">
+          <!-- <div id="icons1"> -->
             <md-icon id="reminder">notifications_active</md-icon>
             <md-tooltip id="reminder1" md-direction="bottom"
               >Reminde Me</md-tooltip
@@ -60,13 +61,21 @@
             <md-tooltip id="color1" md-direction="bottom"
               >Select Color</md-tooltip
             >
+
+        <!-- <i class="fa fa-gg-circle dropdown-toggle" id="colorMenu" data-toggle="dropdown"></i>
+        <ul  class="dropdown-menu" aria-labelledby="colorMenu" >
+          <li v-for="(c, i) in colors">
+            <div class="color" v-bind:style="{'background-color': c }"  v-on:click="setColor(c)"></div>
+          </li>
+        </ul> -->
+      <!-- </div> -->
+
             <md-icon id="archive">archive</md-icon>
             <md-tooltip id="archive1" md-direction="bottom">Archive</md-tooltip>
           </div>
 
           <div class="btn">
-           <button id="btn" type="button" md-alignment-left class="close" v-on:click=" close(); CreateNote();" method="POST">Close</button>
-           
+            <md-button type="button" class="close" v-on:click=" close(); CreateNote();" method="POST">Close</md-button>
           </div>
        <!-- <Display v-bind:getallNotes="getAllNotes"/> -->
   <!-- <Display></Display>         -->
@@ -81,12 +90,12 @@
 </template>
     
 <style lang="scss" scoped>
+// .icons {
+//   display: flex;
+//   justify-content: flex-end;
+//   margin-inline: 200px;
+// }
 
-.md-card-actions {
-    padding: 0px;
-    display: flex;
-    align-items: center;
-}
 .md-card {
   width: 320px;
   margin: 4px;
@@ -100,12 +109,10 @@
   border-radius: 10px;
 }
 
-
-
 // Notes 1
 #list_Notes {
   margin-right: 20px;
-  color: black;
+  // color: 
   // padding-bottom: 28px;
   padding-bottom: 8px;
   margin-left: 20px;
@@ -114,13 +121,11 @@
 #brush {
   padding-right: 22px;
   padding-bottom: 8px;
-  color:black;
 }
 
 #Notes_Image {
   margin-right: 20px;
   padding-bottom: 8px;
-  color:black;
 }
 .note {
   border-radius: 10px;
@@ -161,8 +166,10 @@
 
 #archive {
   color: rgb(19, 2, 2);
+  // padding-left: 24px;
+
   margin-left: 40px;
-  
+  // margin-left: 0px;
 }
 
 #icons1 {
@@ -178,7 +185,7 @@
 
 // Card 2
 #card1 {
-  height: 150px;
+  height: 180px;
   width: 600px;
   border-radius: 10px;
 }
@@ -188,17 +195,9 @@
   // padding-left: 20px;
 }
 
-#btn {
- 
-  cursor: pointer;
-  border:none;
-  background-color: transparent;
-  margin-left: 40px;
-      margin-right: 26px;
-    margin-top: 18px;
-    font-size: 16px;
+.btn {
+  padding-top: 20px;
 }
-
 
 // 2 notes
 .text {
@@ -224,10 +223,13 @@
 <script>
 import noteService from "../Services/noteService"
 // import Display from "../components/Display";
-
+// import display from "../components/Display"
+// import Display from './Display.vue';
 export default {
   components: {
+    // display
     // Display,
+    // icons,
   },
   computed:{
       colors(){
@@ -277,6 +279,47 @@ setColor: function(color){
         console.log(error);
       });
   },
+
+// getAllNotes: function () {
+//    console.log("Line number 281");
+//     noteService
+//       .getNotes()
+      
+//       .then((response) => {
+//         console.log(response.data.result);
+//         this.notes = response.data.result;
+//         // this.notes.map(function(title,description){
+
+//         // })
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   },
+
+//   created() {
+//     this.getAllNotes();
+//   },
+
+       
+// post:function(){
+//       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes',{
+//       title:this.title,
+//         description:this.description,
+//         // cartId:''
+//       },
+
+//        headers : {
+//     Authorization: localStorage.getItem('AccessToken')
+//   }
+//   ).then((data)=> {
+//         // this.$router.push("/display")
+//         console.log(data);
+//       }).catch((error)=>{
+//         console.log(error);
+//       });
+
+//     },
 
   },
 

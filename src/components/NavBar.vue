@@ -1,0 +1,129 @@
+<template>
+ <!-- Main -->
+  <div>
+<!-- <Home></Home> -->
+    <div class="text">
+      <md-app md-mode="reveal">
+        <!-- <div class="md-overlay"></div> -->
+        <md-app-toolbar class="color" position="fixed">
+
+
+
+          <md-button class="md-icon-button" @click="toggleMenu"   >
+            <md-icon>menu</md-icon>
+          </md-button>
+          <span class="md-title">Keep</span>
+
+          <md-card id="cards">
+            <md-icon id="search">search</md-icon>
+            <input type="text" class="textbox" placeholder="Search" />
+          </md-card>
+
+          <div class="Icons">
+            <md-icon id="refresh">refresh</md-icon>
+            <md-icon id="listview">view_stream</md-icon>
+            <md-icon id="setting">settings</md-icon>
+            <md-icon id="apps1" class="material-icons">apps</md-icon>
+          </div>
+        </md-app-toolbar>
+      </md-app>
+
+        <!-- <md-icon id="apps1" class="material-icons">apps</md-icon> -->
+      </div>
+    </div>
+  <!-- </div> -->
+  <!-- Main -->
+</template>
+
+<style lang="scss" scoped>
+
+// Navabar Style
+
+.color {
+  background-color: #fff;
+  height: 20px;
+}
+
+#cards {
+  height: 40px;
+  width: 560px;
+  border-radius: 10px;
+  // border:0.1px solid black;
+  margin-left: 200px;
+}
+
+.textbox {
+  width: 420px;
+  border-radius: 12px;
+  height: 36px;
+  margin-top: 2px;
+  outline: none;
+  margin-right: 70px;
+  border: none;
+}
+
+.Icons {
+  display: inline;
+  margin-left: 240px;
+}
+#search {
+  // margin-left: 24px;
+  color: black;
+  margin-right: 12px;
+}
+#listview {
+  margin-left: 24px;
+}
+#setting {
+  margin-left: 24px;
+  color: black;
+}
+#apps1 {
+  margin-left: 110px;
+  color: black;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.title-name {
+  font-weight: bold;
+  margin-right: 200px;
+}
+#refresh {
+  margin-left: 24px;
+  color: black;
+}
+
+
+</style>
+
+<script>
+// Importing One Component To Another
+// import Create from "../components/Create";
+// import Create from "../components/Create";
+// import Home from "../components/Home";
+// import Display from "../components/Display.vue";
+// import icons from "../components/icons"
+export default {
+  components: {
+    // Create,
+    // // Nav,
+    // Home,
+    // Display,
+    // // icons,
+  },
+  name: "Reveal",
+  data: () => ({
+    menuVisible: false,
+  }),
+  // methods: {
+  //   toggleMenu() {
+  //     this.menuVisible = !this.menuVisible;
+  //   },
+  // },
+};
+</script>

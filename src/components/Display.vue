@@ -11,9 +11,16 @@
             <div class="note pds">
               {{ note.description }}
             </div>
+            <div class="icon">
+             <md-icon id="delete">delete</md-icon>
+              <md-icon id="edit">edit</md-icon>
+            </div>
+<!-- <md-icon>trash</md-icon> -->
 </div>
           </div>
           </div>
+
+          
           <!-- this is the card body -->
     
       <!-- </md-card-content> -->
@@ -41,14 +48,27 @@
     content: "";
     display: table;
     clear: both;
-    margin: 0 -5px;
+       margin: -16px -4px;
+    // margin: 0 -5px;
     display: inline-flex;
     white-space: normal;
     margin-left: 1%;
     margin-top: 3%;
+    
     /* margin-right: 5%; */
     
 }
+
+#edit{
+  cursor: pointer;
+  margin-left: 20px;
+}
+#delete{
+cursor: pointer;
+height: 2px;
+margin-left: 140px;
+}
+
 .display-note{
    
     margin-bottom: 100%;

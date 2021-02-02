@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <md-card> -->
-    <md-card-content>
+    <!-- <md-card-content> -->
     <div class="display" v-for="note in notes" :key="note._id">
       <div class="addNote">
         <div class="notes1">

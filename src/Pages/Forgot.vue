@@ -87,18 +87,6 @@ emailPost() {
     },
 
 
-// email
-
-// post:function(){
-//       this.$http.post('http://fundoonotes.incubation.bridgelabz.com/api/user/reset',{
-//         email:this.form.email,
-  //    
-//       }).then(function(data){
-//         this.$router.push("/login")
-//         console.log(data);
-//       });
-//     },
-
 clearForm() {
       this.$v.$reset();
       this.form.email = null;
@@ -126,6 +114,7 @@ clearForm() {
 </script>
 
 <style lang="scss" scoped>
+
 .md-progress-bar {
   position: absolute;
   top: 0;

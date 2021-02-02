@@ -1,79 +1,80 @@
 <template>
-<div class="color">
-
-
-    <div>
-        <Card
-          className="colorCardContainer"
-          style={{ width: 200, height: 150 }}
-        >
-          {DATA.map((item, index) => (
-            <button onClick=selectColor(item.id)}
-              key={index}
-              className="button"
-              style={{ backgroundColor: item.id }}
-            ></button>
-          ))}
-        </Card>
-      ) : null}
+  <div id="color">
+    <md-icon @click.native="paletteClicked = !paletteClicked">palette</md-icon>
+    <div v-if="paletteClicked" class="palette-content">
+      <div v-for="color in colors" :key="color.index" @click="changeNoteColor(note, color.value)" class="circle" v-bind:style="{ background: color.value }"></div>
     </div>
-</div>
-    
+    <md-snackbar :md-position="position" :md-active.sync="isError" md-persistent>
+      <span>Error Occured!</span>
+      <md-button class="md-primary" @click="isError = false">Ok</md-button>
+    </md-snackbar>
+  </div>
 </template>
-
-
 <script>
+import noteServices from "../Services/noteService";
 export default {
-    name:"colorList",
-    
-methods:{
-    colorlist(){
-// const DATA =// 
-[
-    { title: "MAROON", id: "#800000" },
-    { title: "WHITE", id: "#FFFFFF" },
-    { title: "salmon5", id: "#CFAFAF" },
-    { title: "dustyrose", id: "#D0C0C0" },
-    { title: "indianred4", id: "#DBA9A9" },
-    { title: "brown", id: "#DF9D9D" },
-    { title: "OLIVE", id: "#808000" },
-    { title: "LIME", id: "#00FF00" },
-    { title: "GREEN", id: "#008000" },
-    { title: "AQUA", id: "#00FFFF" },
-    { title: "TEAL", id: "#008080" },
-    { title: "NAVY", id: "#000080" },
-    { title: "INDIANRED", id: "#CD5C5C" },
-    { title: "rosybrown", id: "#CFAFAF" },
-    { title: "indianred", id: "#EABCBC" },
-    { title: "firebrick5", id: "#E69898" },
-    { title: "strawberry", id: "#EDA2A2" },
-    { title: "bloodred", id: "#FF6666" },
-  ];
+  name: "ColorIcon",
+  data() {
+    return {
+      paletteClicked: false,
+      color: "",
+      isError: false,
+      position: "left",
+      colors: [
+        { name: "white", value: "#ffffff" },
+        { name: "red", value: "#f28b82" },
+        { name: "orange", value: "#fbbc04" },
+        { name: "green", value: "#ccff90" },
+        { name: "purple", value: "#d7aefb" },
+        { name: "teal", value: "#a7ffeb" },
+        { name: "AliceBlue", value:"#F0F8FF"},
+        { name: "Beige", value: "#F5F5DC" },
+        { name: "BurlyWood", value:"#DEB887"}
+
+      ]
+    };
+  },
+  props: {
+    note: Object
+  },
+  methods: {
+    changeNoteColor(note, newColor) {
+      let colorData = {
+        color: newColor,
+        noteIdList: [note.id]
+      };
+      noteServices.changeNoteColor(colorData).then(result => {
+        if (result.status == "200") {
+          this.$emit("fetchNotes");
+          this.paletteClicked = false;
+        }
+      });
     }
-},
-}
-
-
+  }
+};
 </script>
-
 <style lang="scss" scoped>
-
-.colorCardContainer{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.md-icon {
+  cursor: pointer;
 }
-.button{
-    margin: 3px;
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    cursor: pointer;
+.circle {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  border: solid rgba($color: gray, $alpha: 0.4) 0.5px;
 }
-.colorIcon{
-    cursor: pointer;
-    font-size: 1.7rem !important;
+.palette-content {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 1vh;
+  column-gap: 1vw;
+  padding: 1vh;
+  position: absolute;
+  bottom: 1vh;
+  background-color: white;
+  box-shadow: 0px 0px 5px 2px rgba($color: gray, $alpha: 0.4);
+  border-radius: 5px;
 }
 </style>
-

@@ -58,16 +58,16 @@
 <script>
 // Importing One Component To Another
 // import Create from "../components/Create";
-// import Create from "../components/Create"
-// import Display from '../components/Display.vue'
+import Create from "../components/Create"
+import Display from '../components/Display.vue'
 import Nav from "../components/NavBar";
-import { Note } from "../components/NoteComponent";
+// import { Note } from "../components/NoteComponent";
 export default {
   components: {
     Nav,
-    // Create,
-    // Display,
-    Note,
+    Create,
+    Display,
+    // Note,
   },
   name: "PersistentMini",
   data: () => ({

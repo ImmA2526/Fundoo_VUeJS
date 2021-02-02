@@ -38,6 +38,13 @@ class noteService {
             },
         });
     }
+
+    //Change Color of Notes 
+
+    changeNoteColor(data) {
+        return http.post("notes/changesColorNotes", data);
+    }
+
 }
 
 export default new noteService

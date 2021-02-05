@@ -152,7 +152,8 @@ lastName:this.form.lastName,
           // localStorage.setItem("AccessToken", data.data.id);
 
           //  setTimeout(()=>  this.$router.push("/home"), 2000)
-          this.$router.push("/home");
+          // this.$router.push("/home");
+          window.location.href="/";
           console.log(data);
         })
         .catch((error) => {

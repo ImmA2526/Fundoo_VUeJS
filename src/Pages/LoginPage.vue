@@ -103,13 +103,14 @@ export default {
 
            setTimeout(()=>  this.redirect(), 2000)
           // this.$router.push("/home");
+          window.location.href="/home";
           // this.$router.replace("/home");
           console.log(data);
         })
         .catch((error) => {
           console.log(error);
         });
-    },
+    },// Login User 
 
 
      redirect() {
@@ -138,7 +139,7 @@ export default {
         this.saveUser();
       }
     },
-  },
+  },  // Methods 
 };
 </script>
 

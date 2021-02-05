@@ -32,7 +32,10 @@
                     class="circle" v-bind:style="{ background: color.value }">
                 </div>
               </div>
-            <md-icon id="archive">archive</md-icon>
+            <!-- <md-icon id="archive">archive</md-icon> -->
+             <!-- <md-button class="md-icon-button" -->
+             <md-icon @click.native="archiveNote()">archive</md-icon>
+             <!-- </md-button> -->
             <!-- <md-icon id="delete" @click.native="clearData()">delete</md-icon> -->
       
         </div>
@@ -259,6 +262,11 @@ import mixinAutoResize from "../autoResize.js";
     },
 
     CreateNote() {
+      if (this.title == null || this.description == null) {
+        // this.AddNoteClicked();
+        this.clearData();
+        return;
+      }
     const userData = {
     title: this.title,
     description: this.description,
@@ -280,6 +288,7 @@ import mixinAutoResize from "../autoResize.js";
     this.title = null;
     this.description = null;
     this.color = "#ffffff";
+    this.isArchived=false;
     },
 
     setColor(color) {

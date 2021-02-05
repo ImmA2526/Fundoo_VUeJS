@@ -5,60 +5,61 @@ import Register from "../Pages/Register"
 import ForgotPassword from "../Pages/Forgot"
 import ResetPassword from "../Pages/ResetPage"
 import Home from "../Pages/Home"
-import color from "../components/Color"
-import nav from "../components/NavBar"
-import display from "../components/Display"
+import Color from "../components/Color"
+import Nav from "../components/NavBar"
+import Display from "../components/Display"
 import Note from "../components/Note"
-import archived from "../components/Archived"
+import Archived from "../components/ArchiveIcon"
 import AddNote from "../components/Create"
+import ArchiveNote from "../components/ArchiveNote"
 
 Vue.use(VueRouter);
 
 
-function guardRoute(to, from, next) {
-  var isAuthenticated = false;
-  if (localStorage.getItem("AccessToken")) {
-    isAuthenticated = true;
-  } else {
-    isAuthenticated = false;
-  }
-  if (isAuthenticated) {
-    next();
-  } else {
-    next("/home");
-  }
-}
+// function guardRoute(to, from, next) {
+//   var isAuthenticated = false;
+//   if (localStorage.getItem("AccessToken")) {
+//     isAuthenticated = true;
+//   } else {
+//     isAuthenticated = false;
+//   }
+//   if (isAuthenticated) {
+//     next();
+//   } else {
+//     next("/");
+//   }
+// }
 
 const routes = [
   {
     path: "/",
     name: "login",
     component: Login,
-    beforeEnter: guardRoute
+    // beforeEnter: guardRoute
   },
   {
     path: "/register",
     name: "register",
     component: Register,
-    beforeEnter: guardRoute
+    // beforeEnter: guardRoute
   },
   {
     path: "/forgot",
     name: "forgot",
     component: ForgotPassword,
-    beforeEnter: guardRoute
+    // beforeEnter: guardRoute
   },
   {
     path: "/reset",
     name: "reset",
     component: ResetPassword,
-    beforeEnter: guardRoute
+    // beforeEnter: guardRoute
   },
   
   {
     path: "/nav",
-    name: "nav",
-    component: nav
+    name: "Nav",
+    component: Nav
   },
 
   {
@@ -71,41 +72,50 @@ const routes = [
     path: "/note",
     name: "note",
     component: Note,
-    beforeEnter: guardRoute,
-    children: [
+    // beforeEnter: guardRoute,
+    // children: [
+      
+  },
       {
         path: "/add",
         component: AddNote
       },
 
-      {
-        path: "/display",
-        component: display
-      }
-    ]
-  },
+    //   {
+    //     path: "/display",
+    //     component: Display
+    //   }
+    // ]
+  // },
 
 
   {
-    path: "/archived",
-    name: "archived",
-    component: archived,
-    beforeEnter: guardRoute
+    path: "/archive",
+    name: "Archived",
+    component: Archived,
+    // beforeEnter: guardRoute
+  },
+
+  {
+    path: "/archiveNote",
+    name: "Archived",
+    component: ArchiveNote,
+    // beforeEnter: guardRoute
   },
 
   {
     path: "/color",
-    name: "color",
-    component: color,
-    beforeEnter: guardRoute
+    name: "Color",
+    component: Color,
+    // beforeEnter: guardRoute
   },
 
-  // {
-  //   path: "/display",
-  //   name: "display",
-  //   component: display,
-  //   beforeEnter: guardRoute
-  // },
+  {
+    path: "/Display",
+    name: "Display",
+    component: Display,
+    // beforeEnter: guardRoute
+  },
   
 ];
 

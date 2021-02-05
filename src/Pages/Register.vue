@@ -148,12 +148,12 @@ lastName:this.form.lastName,
       };
       userService
         .registration(userData)
-        .then(function (data) {
+        .then((data)=> {
           // localStorage.setItem("AccessToken", data.data.id);
 
-          //  setTimeout(()=>  this.$router.push("/home"), 2000)
+           setTimeout(()=>  this.$router.push("/home"), 2000)
           // this.$router.push("/home");
-          window.location.href="/";
+          // window.location.href="/";
           console.log(data);
         })
         .catch((error) => {

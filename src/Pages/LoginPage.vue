@@ -80,15 +80,6 @@ export default {
   },
 
   methods: {
-    getValidationClass(fieldName) {
-      const field = this.$v.form[fieldName];
-      if (field) {
-        return {
-          "md-invalid": field.$invalid && field.$dirty,
-        };
-      }
-    },
-
     // loginUser
     loginPost() {
       const userData = {
@@ -98,19 +89,28 @@ export default {
       };
       userService
         .login(userData)
-        .then(function (data) {
+        .then((data)=> {
           localStorage.setItem("AccessToken", data.data.id);
 
            setTimeout(()=>  this.redirect(), 2000)
-          // this.$router.push("/home");
-          window.location.href="/home";
+          this.$router.push("/home");
+          // window.location.href="/home";
           // this.$router.replace("/home");
           console.log(data);
         })
         .catch((error) => {
           console.log(error);
         });
-    },// Login User 
+    },// Login User
+
+    getValidationClass(fieldName) {
+      const field = this.$v.form[fieldName];
+      if (field) {
+        return {
+          "md-invalid": field.$invalid && field.$dirty,
+        };
+      }
+    }, 
 
 
      redirect() {

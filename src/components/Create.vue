@@ -7,19 +7,17 @@
         <div class="note">
             <input type="text" id="titles" v-model="title" placeholder="Take Note...." class="input1" />
             <md-icon id="list_Notes">notes</md-icon>
-            <md-tooltip id="list_Notes1" md-direction="bottom">List All list_Notes</md-tooltip>
+            <!-- <md-tooltip id="list_Notes1" md-direction="bottom">List All list_Notes</md-tooltip> -->
             <md-icon id="brush">brush</md-icon>
-            <md-tooltip id="brush1" md-direction="bottom">Note with Drawing</md-tooltip>
             <md-icon id="Notes_Image">image</md-icon>
-            <md-tooltip id="Notes_Image1" md-direction="bottom">Note with Image</md-tooltip>
         </div>
     </md-card>
   </div>
 
   <!-- Create Note 2  -->
   <!-- <div> -->
-    <div v-else @on:click="toggle" class="createnote">
-      <md-card id="card1" md-with-hover>
+    <div v-else @on:click="toggle" class="createnote" >
+      <md-card id="card1" v-bind:style="{ background: this.color }" md-with-hover >
           <div class="note1">
               <input v-bind:style="{ background: this.color }" type="text" class="text1" id="title" placeholder="Take Note..."  v-model="title"/>
               <textarea v-bind:style="{ background: this.color }" type="text" class="text" id="desc"  placeholder="Decscription...."  v-model="description" @input="mixin_autoResize_resize"></textarea>
@@ -35,12 +33,11 @@
                 </div>
               </div>
             <md-icon id="archive">archive</md-icon>
-            <md-icon id="delete" @click.native="clearData()">delete</md-icon>
-       
-
+            <!-- <md-icon id="delete" @click.native="clearData()">delete</md-icon> -->
+      
         </div>
  <div class="btn">
-              <button id="btn" type="button"  class="close" v-on:click=" close(); CreateNote();" method="POST">Close</button>
+              <button id="btn" type="button"  class="close" v-on:click=" close(); CreateNote(); " method="POST">Close</button>
         </div>
        
       </md-card-actions>
@@ -210,26 +207,27 @@ left: 8vw;
 background-color: white;
 box-shadow: 0px 0px 5px 2px rgba($color: gray, $alpha: 0.4);
 border-radius: 5px;
-}
 
+}
 
 </style>
 
 <script>
-
+import mixinAutoResize from "../autoResize.js";
     import noteService from "../Services/noteService"
+    
     export default {
-    // name: "AddNote",
+    mixins: [mixinAutoResize],
     data() {
     return {
     open: false,
     title: null,
     description: null,
-    // color: "#FFFFFF",
     isArchived: false,
     labelledList: [],
     position: "left",
     paletteClicked: false,
+    // fetchNotes:false,
     color: "",
     colors: [
     { name: "white", value: "#ffffff" },
@@ -238,9 +236,9 @@ border-radius: 5px;
     { name: "green", value: "#ccff90" },
     { name: "purple", value: "#d7aefb" },
     { name: "teal", value: "#a7ffeb" },
-                { name: "AliceBlue", value:"#F0F8FF"},
-        { name: "Beige", value: "#F5F5DC" },
-        { name: "BurlyWood", value:"#DEB887"}
+    { name: "AliceBlue", value:"#F0F8FF"},
+    { name: "Beige", value: "#F5F5DC" },
+    { name: "BurlyWood", value:"#DEB887"}
 
     ]
     };
@@ -254,6 +252,10 @@ border-radius: 5px;
 
     close() {
     this.open = false;
+    this.paletteClicked=false;
+    // this.clearData();
+    this.color = "#ffffff";
+    
     },
 
     CreateNote() {
@@ -263,17 +265,16 @@ border-radius: 5px;
     };
     noteService
     .createNote(userData)
-    .then(function (data) {
+    .then((data)=> {
     localStorage.getItem("AccessToken");
-    //  setTimeout(()=>  this.$router.push("/home"), 2000)
+    //  setTimeout(()=>  this.$router.push("/"), 2000)
     console.log(data);
-    })
-    .catch((error) => {
+    this.$emit('getNotesEvent');
+
+    }).catch((error) => {
     console.log(error);
     });
     },
-
-  },  // Method
 
     clearData() {
     this.title = null;
@@ -289,6 +290,15 @@ border-radius: 5px;
     archiveNote() {
     this.isArchived = !this.isArchived;
     },
+
+    // getNotesEvent() {
+    //   console.warn("Calling");
+    //   this.$emit('getNotes',this.fetchNotes);
+    // }
+
+  },  // Method
+
+    
 
 };
 

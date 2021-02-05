@@ -48,8 +48,9 @@
       </md-app-drawer>
 
       <md-app-content>
-        <Create></Create>
-        <Display></Display>
+        <!-- <Create></Create> -->
+        <!-- <Display ></Display> -->
+<Note />
       </md-app-content>
     </md-app>
   </div>
@@ -58,16 +59,16 @@
 <script>
 // Importing One Component To Another
 // import Create from "../components/Create";
-import Create from "../components/Create"
-import Display from '../components/Display.vue'
+// import Create from "../components/Create"
+// import Display from '../components/Display.vue'
 import Nav from "../components/NavBar";
-// import { Note } from "../components/NoteComponent";
+import Note  from "../components/Note";
 export default {
   components: {
     Nav,
-    Create,
-    Display,
-    // Note,
+    // Create,
+    // Display,
+    Note,
   },
   name: "PersistentMini",
   data: () => ({

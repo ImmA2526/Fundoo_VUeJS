@@ -91,6 +91,20 @@
   color: black;
 }
 
+
+@media (min-width: 100px) and (max-width: 140px) {
+.md-app-toolbar , .md-app-bar
+   {
+    width: 100px;
+    left: 15vw;
+  }
+  .md-app-toolbar {
+    position: fixed;
+    top: 0;
+}
+
+  }
+
 </style>
 
 <script>

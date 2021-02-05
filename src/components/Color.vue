@@ -45,7 +45,6 @@ export default {
       };
       noteServices.changeNoteColor(colorData).then(result => {
         if (result.status == "200") {
-          this.$emit("fetchNotes");
           this.paletteClicked = false;
         }
       });

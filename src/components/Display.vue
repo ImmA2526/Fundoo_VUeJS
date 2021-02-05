@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <md-card> -->
-    <!-- <md-card-content> -->
-    <div class="display" v-for="note in notes" :key="note._id">
+    <div class="display" v-for="note in allNotes" :key="note._id">
       <div class="addNote">
         <div class="notes1">
           <div class="note pds">
@@ -90,11 +88,17 @@
 
 <script>
 
-import noteService from "../Services/noteService";
+// import noteService from "../Services/noteService";
+// import Spinner from "vue-simple-spinner";
 export default {
+  
+  props:[
+       'allNotes'
+    ],
   components: {
     // Display,
     // icons,
+    // Spinner,
   },
 
   data: () => ({
@@ -104,25 +108,7 @@ export default {
     close() {
       this.open = false;
     },
-
-    ///Get all notes
-    x: function () {
-      noteService
-        .getNotes()
-        .then((response) => {
-          console.log(response.data.data.data);
-          this.notes = response.data.data.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
-
-  //Get Note Function
-
-  created() {
-    this.x();
+   
   },
 
 };

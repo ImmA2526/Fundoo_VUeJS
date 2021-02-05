@@ -40,9 +40,16 @@ class noteService {
     }
 
     //Change Color of Notes 
-
     changeNoteColor(data) {
         return http.post("notes/changesColorNotes", data);
+    }
+
+    archiveNote(data) {
+        return http.post("notes/archiveNotes", data);
+    }
+
+    getArchivedNotes() {
+        return http.get("notes/getArchiveNotesList");
     }
 
 }

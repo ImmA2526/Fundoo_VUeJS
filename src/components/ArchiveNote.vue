@@ -1,116 +1,51 @@
 <template>
   <div id="archived-container">
-    <div id="empty" v-if="isNoteListEmpty">
-      <Spinner id="custom-spinner" v-if="notesLoadding" />Archived Notes Will
-      Appear Here
-    </div>
-
     <div id="note-list" v-if="!isNoteListEmpty">
-      <div v-bind:style="{ background: note.color }" class="card" v-for="note in filteredNotes.slice().reverse()" :key="note.index" >
-        <!-- <md-card-header class="md-title" @click.native="callUpdateNote(note)">
-        {{note.title}}</md-card-header>
-        <md-card-content @click.native="callUpdateNote(note)">
-          {{ note.description }}
-        </md-card-content> -->
-
+      <!-- <div v-bind:style="{ background: note.color }" class="card" v-for="note in filteredNotes.slice().reverse()" :key="note.index" > -->
+<!-- <div class="Archive note">
+</div>     -->
         <div class="cardActions">
-          <!-- <PinIcon
-            id="push-pin"
-            v-bind:note="note"
-            @fetchNotes="fetchNotes()"
-          />
-          <ReminderIcon /> -->
-          <!-- <ColorIcon v-bind:note="note" @fetchNotes="fetchNotes()" /> -->
-          <ArchiveIcon v-bind:note="note" noteType="Archived" @fetchNotes="fetchNotes()"/>
-          <!-- <DeleteIcon v-bind:note="note" @fetchNotes="fetchNotes()" /> -->
+          <ArchiveIcon id="archive" v-bind:note="note" noteType="Archived" @fetchNotes="fetchNotes()"/>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
-
+<!-- #archive , #color -->
     <md-snackbar :md-position="position" :md-active.sync="isError" md-persistent>
       <span>Error Occured!</span>
       <md-button class="md-primary" @click="isError = false">Ok</md-button>
     </md-snackbar>
-    <!-- <md-dialog :md-active.sync="showDialog">
-      <UpdateNote
-        v-bind:note="updateNote"
-        @fetchNotes="fetchNotes()"
-        @closeUpdate="closeUpdate()"
-      />
-    </md-dialog> -->
-  </div>
+     </div>
 </template>
 
 <script>
-import noteServices from "../Services/noteService";
-import Spinner from "vue-simple-spinner";
+// import noteServices from "../Services/noteService";
+// import Spinner from "vue-simple-spinner";
 import ArchiveIcon from "./ArchiveIcon.vue";
-// import ColorIcon from "./ColorIcon.vue";
 
 export default {
   name: "notes",
   data() {
     return {
-      notesLoadding: false,
+    //   notesLoadding: false,
       isNoteListEmpty: true,
       notes: [],
       isError: false,
       position: "left",
       showDialog: false,
-    //   updateNote: Object,
-      search: ""
     };
   },
   components: {
-    Spinner,
+    // Spinner,
     ArchiveIcon,
-    // DeleteIcon,
-    // ColorIcon,
-    // ReminderIcon,
-    // PinIcon,
-    // UpdateNote
   },
-  created() {
-    this.fetchNotes();
-  },
-//   mounted() {
-//     EventBus.$on("Serached", search => {
-//       this.search = search;
-//     });
-//   },
-  computed: {
-    filteredNotes: function() {
-      return this.notes.filter(note => {
-        return note.title.match(this.search);
-      });
-    }
-  },
+  
 
   methods: {
-    fetchNotes() {
-      this.notesLoadding = true;
-      noteServices
-        .getArchivedNotes()
-        .then(result => {
-          if (result.status == "200") {
-            this.notesLoadding = false;
-            this.notes = result.data.data.data;
-            this.isNoteListEmpty = false;
-          }
-        })
-        .catch(error => {
-          this.isError = true;
-           console.log(error);
-        });
-    },
-    // callUpdateNote(note) {
-    //   this.updateNote = note;
-    //   this.showDialog = true;
-    // },
-    // closeUpdate() {
-    //   this.showDialog = false;
-    // }
-  }
+    
+  },
+  
+  
+
 };
 </script>
 
@@ -180,39 +115,5 @@ export default {
   padding: 1vw;
   padding-bottom: 1vh;
   opacity: 0%;
-}
-@media (min-width: 320px) and (max-width: 360px) {
-  #archived-container {
-    width: 65vw;
-    left: 22vw;
-    position: relative;
-    top: 10vh;
-    height: auto;
-  }
-  #note-list {
-    grid-template-columns: 1fr;
-    row-gap: 3vh;
-  }
-  .cardActions {
-    opacity: 100%;
-  }
-  .md-card-content {
-    margin-bottom: 2vh;
-  }
-}
-//Media query For Moto G4 Horizontal.
-@media (min-width: 570px) and (max-width: 640px) {
-  #archived-container {
-    width: 70vw;
-    left: 15vw;
-  }
-  .cardActions {
-    opacity: 100%;
-  }
-  #note-list {
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 5vh;
-    column-gap: 2vw;
-  }
 }
 </style>

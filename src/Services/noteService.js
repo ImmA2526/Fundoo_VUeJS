@@ -41,15 +41,26 @@ class noteService {
 
     //Change Color of Notes 
     changeNoteColor(data) {
-        return http.post("notes/changesColorNotes", data);
+        return http.post("/notes/changesColorNotes", data);
     }
 
-    archiveNote(data) {
-        return http.post("notes/archiveNotes", data);
+
+    archiveNote(userData) {
+        console.log(userData)
+        return http.post(`/notes/archiveNotes`, userData, {
+            headers: {
+                Authorization: localStorage.getItem('AccessToken'),
+            },
+        });
     }
 
-    getArchivedNotes() {
-        return http.get("notes/getArchiveNotesList");
+    getArchivedNotes(userData) {
+        console.log(userData)
+        return http.get(`/notes/getArchiveNotesList`, userData, {
+            headers: {
+                Authorization: localStorage.getItem('AccessToken'),
+            },
+        });
     }
 
 }

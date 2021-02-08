@@ -2,6 +2,7 @@
  <!-- Main -->
   <div>
 <!-- <Home></Home> -->
+<div class="container">
     <div class="text">
       <md-app md-mode="reveal">
         <md-app-toolbar class="color" position="fixed">
@@ -25,7 +26,7 @@
       </md-app>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
   <!-- Main -->
 </template>
 
@@ -53,6 +54,12 @@
   outline: none;
   margin-right: 70px;
   border: none;
+}
+
+.text
+{
+  display: inline;
+  height: 20px;
 }
 
 .Icons {
@@ -91,23 +98,45 @@
   color: black;
 }
 
-
-@media (min-width: 100px) and (max-width: 140px) {
-.md-app-toolbar , .md-app-bar
-   {
-    width: 100px;
-    left: 15vw;
-  }
-  .md-app-toolbar {
-    position: fixed;
-    top: 0;
+.container{
+  display: grid;
+  height: 70px;
+  width: auto;
+  flex-direction: row;
+flex-flow: wrap;
 }
 
-  }
+// @media screen and (min-width: 400px) {
+// .container
+// {
+// width: 120%;
+// display: grid;
+// flex-flow: wrap;
+// // flex-direction: ;
+// }
+
+// // #cards
+// // {
+// //   width: 40%;
+// //   // display: inline-block;
+// // }
+
+// .textbox
+// {
+//   width: 40%;
+// }
+
+// .Icons
+// {
+//   display:inline-table;
+// }
+
+//   }
 
 </style>
 
 <script>
+
 // Importing One Component To Another
 // import Create from "../components/Create";
 // import Home from "../components/Home";

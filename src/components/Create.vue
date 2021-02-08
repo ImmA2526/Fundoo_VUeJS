@@ -5,7 +5,7 @@
         <!-- <div> -->
     <md-card id="card" md-with-hover>
         <div class="note">
-            <input type="text" id="titles" v-model="title" placeholder="Take Note...." class="input1" />
+            <input type="text" id="titles" v-model="title" placeholder="Take Note...." class="input1"  />
             <md-icon id="list_Notes">notes</md-icon>
             <!-- <md-tooltip id="list_Notes1" md-direction="bottom">List All list_Notes</md-tooltip> -->
             <md-icon id="brush">brush</md-icon>
@@ -25,22 +25,30 @@
 
       <md-card-actions>
         <div id="icons1">
+
+        <!-- <ArchiveNote />
+             <ArchiveIcon />
+             <ColorIcon /> -->
               <md-icon id="reminder">notifications_active</md-icon>
-              <md-icon id="color" @click.native="paletteClicked = !paletteClicked">palette</md-icon>
+              <!-- <md-icon id="color" @click.native="paletteClicked = !paletteClicked">palette</md-icon>
               <div v-if="paletteClicked" class="palette-content">
                 <div v-for="color in colors" :key="color.index" @click="setColor(color.value)" 
                     class="circle" v-bind:style="{ background: color.value }">
                 </div>
-              </div>
+              </div> -->
             <!-- <md-icon id="archive">archive</md-icon> -->
              <!-- <md-button class="md-icon-button" -->
-             <md-icon @click.native="archiveNote()">archive</md-icon>
+             <ColorIcon id="color" v-bind:note="note"></ColorIcon>
+              <!-- <Display v-bind:allNotes="notes"></Display> -->
+          <ArchiveIcon id="archive" v-bind: note="note" noteType="Display"></ArchiveIcon>
+             <md-icon v-bind:note="note" @click.native="archiveNote()" id="archive">archive</md-icon>
+             
              <!-- </md-button> -->
             <!-- <md-icon id="delete" @click.native="clearData()">delete</md-icon> -->
       
         </div>
  <div class="btn">
-              <button id="btn" type="button"  class="close" v-on:click=" close(); CreateNote(); " method="POST">Close</button>
+              <button id="btn" type="button"  class="close" v-on:click=" close(); CreateNote(); clearData(); " method="POST">Close</button>
         </div>
        
       </md-card-actions>
@@ -49,6 +57,113 @@
 </div><!-- MAin Div -->
 </template>
 
+
+
+<script>
+import mixinAutoResize from "../autoResize.js";
+    import noteService from "../Services/noteService"
+import ArchiveIcon from "../components/ArchiveIcon"
+// import ArchiveNote from "../components/ArchiveNote"
+import ColorIcon from "../components/Color"
+    export default {
+      
+    mixins: [mixinAutoResize],
+    components:{
+     ArchiveIcon,
+    // ArchiveNote,
+    ColorIcon
+
+    },
+    data() {
+    return {
+    open: false,
+    title: null,
+    description: null,
+    isArchived: false,
+    labelledList: [],
+    position: "left",
+    paletteClicked: false,
+    // fetchNotes:false,
+    // color:"#ffffff",
+    // // color: "",
+    // colors: [
+    // { name: "white", value: "#ffffff" },
+    // { name: "red", value: "#f28b82" },
+    // { name: "orange", value: "#fbbc04" },
+    // { name: "green", value: "#ccff90" },
+    // { name: "purple", value: "#d7aefb" },
+    // { name: "teal", value: "#a7ffeb" },
+    // { name: "AliceBlue", value:"#F0F8FF"},
+    // { name: "Beige", value: "#F5F5DC" },
+    // { name: "BurlyWood", value:"#DEB887"}
+
+    // ]
+    };
+  },
+
+    methods: {
+    
+    toggle() {
+    this.open = !this.open;
+    },
+
+    close() {
+    this.open = false;
+    this.paletteClicked=false;
+   
+    },
+
+    CreateNote() {
+   
+    let userData = {
+    title: this.title,
+    description: this.description,
+    color:this.color,
+    isArchived: this.isArchived
+    
+    
+    };
+    noteService
+    .createNote(userData)
+    .then((data)=> {
+    localStorage.getItem("AccessToken");
+    //  setTimeout(()=>  this.$router.push("/"), 2000)
+    console.log(data);
+    this.$emit('getNotesEvent');
+
+    }).catch((error) => {
+    console.log(error);
+    });
+    },
+
+    clearData() {
+    this.title = null;
+    this.description = null;
+    this.color = "#ffffff";
+    this.isArchived=false;
+    },
+
+    setColor(color) {
+    this.color = color;
+    this.paletteClicked = false;
+    },
+
+    archiveNote() {
+    this.isArchived = !this.isArchived;
+    },
+
+    // getNotesEvent() {
+    //   console.warn("Calling");
+    //   this.$emit('getNotes',this.fetchNotes);
+    // }
+
+  },  // Method
+
+    
+
+};
+
+</script>
 
 <style lang="scss" scoped>
 .md-card {
@@ -97,8 +212,8 @@
   margin-right: 200px;
 }
 
-#Notes_Image1 {
-}
+// #Notes_Image1 {
+// }
 
 // Input Field
 .input1 {
@@ -137,14 +252,14 @@
   padding-bottom: 30px;
 }
 
-#reminder1 {
-}
+// #reminder1 {
+// }
 
-#color1 {
-}
+// #color1 {
+// }
 
-#archive1 {
-}
+// #archive1 {
+// }
 
 // Card 2
 #card1 {
@@ -214,101 +329,3 @@ border-radius: 5px;
 }
 
 </style>
-
-<script>
-import mixinAutoResize from "../autoResize.js";
-    import noteService from "../Services/noteService"
-    
-    export default {
-    mixins: [mixinAutoResize],
-    data() {
-    return {
-    open: false,
-    title: null,
-    description: null,
-    isArchived: false,
-    labelledList: [],
-    position: "left",
-    paletteClicked: false,
-    // fetchNotes:false,
-    color: "",
-    colors: [
-    { name: "white", value: "#ffffff" },
-    { name: "red", value: "#f28b82" },
-    { name: "orange", value: "#fbbc04" },
-    { name: "green", value: "#ccff90" },
-    { name: "purple", value: "#d7aefb" },
-    { name: "teal", value: "#a7ffeb" },
-    { name: "AliceBlue", value:"#F0F8FF"},
-    { name: "Beige", value: "#F5F5DC" },
-    { name: "BurlyWood", value:"#DEB887"}
-
-    ]
-    };
-  },
-
-    methods: {
-    
-    toggle() {
-    this.open = !this.open;
-    },
-
-    close() {
-    this.open = false;
-    this.paletteClicked=false;
-    // this.clearData();
-    this.color = "#ffffff";
-    
-    },
-
-    CreateNote() {
-      if (this.title == null || this.description == null) {
-        // this.AddNoteClicked();
-        this.clearData();
-        return;
-      }
-    const userData = {
-    title: this.title,
-    description: this.description,
-    };
-    noteService
-    .createNote(userData)
-    .then((data)=> {
-    localStorage.getItem("AccessToken");
-    //  setTimeout(()=>  this.$router.push("/"), 2000)
-    console.log(data);
-    this.$emit('getNotesEvent');
-
-    }).catch((error) => {
-    console.log(error);
-    });
-    },
-
-    clearData() {
-    this.title = null;
-    this.description = null;
-    this.color = "#ffffff";
-    this.isArchived=false;
-    },
-
-    setColor(color) {
-    this.color = color;
-    this.paletteClicked = false;
-    },
-
-    archiveNote() {
-    this.isArchived = !this.isArchived;
-    },
-
-    // getNotesEvent() {
-    //   console.warn("Calling");
-    //   this.$emit('getNotes',this.fetchNotes);
-    // }
-
-  },  // Method
-
-    
-
-};
-
-</script>

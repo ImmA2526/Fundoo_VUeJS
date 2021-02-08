@@ -1,6 +1,7 @@
 <template>
   <div id="archive">
     <md-icon @click.native="archiveNote(note)">archive</md-icon>
+<!-- <ArchiveIcon > -->
 
     <md-snackbar :md-position="position" :md-active.sync="isArchived" md-persistent v-if="noteType == 'Display'">
       <span>Note Archived!</span>
@@ -32,35 +33,36 @@ export default {
     return {
       isArchived: false,
       isError: false,
-      position: "left"
+      position: "left",
     };
   },
   methods: {
     archiveNote(note) {
-      let archiveData = {
+      let userData = {
         isArchived: !note.isArchived,
         noteIdList: [note.id]
       };
+      
       noteService
-        .archiveNote(archiveData)
-        .then(data => {
-        //   if (result.status = "200") {
-            console.log(data);
-            this.$emit("fetchNotes");
+        .archiveNote(userData)
+        .then((data) => {         
+                localStorage.getItem("AccessToken");
+            this.$emit("ArchiveEvents");
             this.isArchived = true;
-          }
-        // }
-        )
+            console.log(data);
+          })
         .catch((error) =>{
           this.isError = true;
           console.log(error);
         });
-    }
+    },
   }
+
 };
 </script>
 <style lang="scss" scoped>
 .md-icon {
   cursor: pointer;
 }
+
 </style>

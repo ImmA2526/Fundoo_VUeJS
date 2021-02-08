@@ -5,13 +5,13 @@ import Register from "../Pages/Register"
 import ForgotPassword from "../Pages/Forgot"
 import ResetPassword from "../Pages/ResetPage"
 import Home from "../Pages/Home"
-import Color from "../components/Color"
-import Nav from "../components/NavBar"
-import Display from "../components/Display"
-import Note from "../components/Note"
-import Archived from "../components/ArchiveIcon"
-import AddNote from "../components/Create"
-import ArchiveNote from "../components/ArchiveNote"
+import Color from "../Components/Color"
+import Nav from "../Components/NavBar"
+import Display from "../Components/Display"
+import Note from "../Components/Note"
+import Archived from "../Components/ArchiveIcon"
+import AddNote from "../Components/Create"
+import ArchiveNote from "../Components/ArchiveNote"
 
 Vue.use(VueRouter);
 
@@ -98,7 +98,7 @@ const routes = [
 
   {
     path: "/archiveNote",
-    name: "Archived",
+    name: "ArchivedNote",
     component: ArchiveNote,
     // beforeEnter: guardRoute
   },
